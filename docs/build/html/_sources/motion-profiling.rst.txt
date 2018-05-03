@@ -35,7 +35,9 @@ Part 2
 +------------+--------------+-------------------------------------+
 | Subsystem  | Preferred    | Reason                              |
 +------------+--------------+-------------------------------------+
-| Drivetrain | PathFinder   | 2d path, benefits from more sensors |
+| Drivetrain | PathFinder   | | 2d path,                          |
+|            |              | | benefits from                     |
+|            |              | | more sensors                      |
 +------------+--------------+-------------------------------------+
 | Lift       | Motion Magic | 1d path, off load to Talon SRX      |
 +------------+--------------+-------------------------------------+
