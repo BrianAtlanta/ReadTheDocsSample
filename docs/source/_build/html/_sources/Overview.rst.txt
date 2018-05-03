@@ -1,0 +1,28 @@
+How to Prepare and Submit a FAST Job
+====================================
+
+The bulk of this document is mostly reference details, so don't let the size of it fool you: FAST jobs are really easy to prepare and submit, and you'll be a pro in no time.  
+FAST can do a lot, so the documentation has to contain all the details of what it can do, but most of what you'll need to know for the majority of jobs is extremely basic.
+
+FAST in a Nutshell
+++++++++++++++++++
+
+Beside the data file you send us for processing, you will also need to send us files that specify what you want us to do and how you want us to do it.  These are simple text files containing phrases our FAST system uses as its processing instructions.
+
+The first of these files is **FASTservices.txt**, which tells us which services you want processed on your data file.
+
+The second is **FASTinput.txt**, which describes the format of your data file to our FAST system.
+
+The third is **FASToutput.txt**, which tells us how you want your output file or files to be formatted and populated.
+
+You prepare the job by creating a ZIP file that contains your data input file plus these FAST specification files. The ZIP you send to us will have the following file naming convention: YourReference.fast.zip. Where YourReference can contain any Alpha/Numeric value, including spaces, from 1 to 30 characters. This will become the Purchase Order number that is referenced during our billing process.
+
+You submit the job by sending it via your SecureFTP account to our processing server.
+
+Once your job is finished processing you will receive notification via an email containing a link to download the job.
+
+If we have any problems with any part of your job then we will contact you via email.
+
+That’s FAST in a nutshell.  The details of the process are very straightforward, too, so please take a few moments to read through the rest of this brief document and familiarize yourself with FAST job processing.
+
+

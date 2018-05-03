@@ -1,0 +1,546 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FASTServices.txt &mdash; FAST Starter Kit alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/peach-custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FASTinput.txt" href="FASTInputFile.html" />
+    <link rel="prev" title="How to Prepare and Submit a FAST Job" href="HowToPrepare.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> FAST Starter Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="HowToPrepare.html">How to Prepare and Submit a FAST Job</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FASTServices.txt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-makes-a-phrase">What makes a phrase?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-fastservices-txt-templates">Custom FASTservices.txt Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#services-notes">Services Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specifications">Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#yes-no-test">Yes, No, Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defaults">Defaults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-corrections">Automatic Corrections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fastservices-txt-is-required">FASTservices.txt is Required</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-to-find-the-template">Where to Find the Template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FASTInputFile.html">FASTinput.txt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FASTOutputFile.html">FASTOutput.txt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAST Expression Language.html">FAST Expression Language (FXL)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FAST Starter Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>FASTServices.txt</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/FASTServicesFile.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fastservices-txt">
+<h1>FASTServices.txt<a class="headerlink" href="#fastservices-txt" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference download internal" href="_downloads/FASTServices.txt" download=""><code class="xref download docutils literal notranslate"><span class="pre">FASTServices.txt</span></code></a></p>
+<p>Peachtree Data can provide you with a standard <code class="docutils literal notranslate"><span class="pre">FASTservices.txt</span></code> template that contains all possible service specifications plus comments to guide you.  Here is an example that specifies processing CASS and NCOA:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="o">-----------------------------</span>  <span class="n">FASTservices</span>  <span class="o">------------------------------</span>
+
+<span class="o">*</span> <span class="n">NOTE</span><span class="p">:</span> <span class="n">When</span> <span class="n">you</span> <span class="n">see</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span> <span class="n">below</span> <span class="n">that</span> <span class="n">means</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">Yes</span>
+<span class="o">*</span> <span class="n">N</span> <span class="o">=</span> <span class="n">No</span>
+<span class="o">*</span> <span class="n">T</span> <span class="o">=</span> <span class="n">Test</span> <span class="n">Only</span>
+<span class="o">*</span>
+<span class="o">*</span> <span class="n">Testing</span> <span class="n">a</span> <span class="n">service</span> <span class="n">does</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">same</span> <span class="n">processing</span> <span class="ow">and</span> <span class="n">reporting</span> <span class="n">of</span> <span class="n">a</span>
+<span class="o">*</span> <span class="n">normal</span> <span class="n">service</span><span class="p">,</span> <span class="k">except</span> <span class="n">that</span> <span class="n">it</span> <span class="n">neither</span> <span class="n">costs</span> <span class="n">you</span> <span class="n">anything</span> <span class="n">nor</span> <span class="n">returns</span>
+<span class="o">*</span> <span class="n">the</span> <span class="n">processed</span> <span class="n">data</span> <span class="n">to</span> <span class="n">you</span><span class="o">.</span>  <span class="n">You</span> <span class="n">will</span><span class="p">,</span> <span class="n">however</span><span class="p">,</span> <span class="n">receive</span> <span class="n">the</span> <span class="n">reports</span> <span class="n">that</span>
+<span class="o">*</span> <span class="n">show</span> <span class="n">you</span> <span class="n">what</span> <span class="n">you</span> <span class="n">would</span> <span class="n">have</span> <span class="n">received</span> <span class="n">back</span> <span class="k">if</span> <span class="n">you</span> <span class="n">had</span> <span class="n">specified</span> <span class="n">the</span>
+<span class="o">*</span> <span class="n">actual</span> <span class="n">service</span><span class="o">.</span>  <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">great</span> <span class="n">way</span> <span class="n">to</span> <span class="n">see</span> <span class="o">--</span> <span class="n">free</span> <span class="n">of</span> <span class="n">charge</span> <span class="o">--</span> <span class="n">how</span>
+<span class="o">*</span> <span class="n">Peachtree</span> <span class="n">Data</span> <span class="n">could</span> <span class="n">have</span> <span class="n">better</span> <span class="n">served</span> <span class="n">your</span> <span class="n">data</span> <span class="n">hygiene</span> <span class="n">needs</span><span class="o">.</span>
+<span class="o">*</span>
+<span class="o">*</span> <span class="n">When</span> <span class="n">you</span> <span class="n">see</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="n">that</span> <span class="n">means</span> <span class="n">the</span> <span class="n">service</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">available</span> <span class="k">for</span> <span class="n">testing</span><span class="o">.</span>
+
+
+<span class="o">*</span> <span class="n">REVERSE</span> <span class="n">PHONE</span> <span class="n">APPEND</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="n">A</span><span class="o">-</span><span class="n">REVERSEPHONE</span><span class="p">:</span> <span class="n">Reverse</span> <span class="n">Phone</span> <span class="n">Append</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">....................................</span> <span class="o">=</span>
+
+
+<span class="o">*</span> <span class="n">APARTMENT</span> <span class="n">APPEND</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="n">A</span><span class="o">-</span><span class="n">APT</span><span class="o">-</span><span class="n">APPEND</span><span class="p">:</span> <span class="n">Apartment</span> <span class="n">Number</span> <span class="n">Append</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..................................</span> <span class="o">=</span>
+
+
+<span class="o">*</span> <span class="n">ADDRESS</span> <span class="n">STANDARDIZATION</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">Specify</span> <span class="n">output</span> <span class="n">casing</span><span class="p">,</span> <span class="k">if</span> <span class="n">left</span> <span class="n">blank</span> <span class="n">FAST</span> <span class="n">will</span> <span class="n">use</span> <span class="n">Auto</span><span class="o">-</span><span class="n">case</span> <span class="n">to</span>
+<span class="o">*</span> <span class="n">match</span> <span class="n">the</span> <span class="n">output</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">casing</span>
+<span class="n">Case</span> <span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="n">UL</span><span class="o">/</span><span class="n">U</span><span class="o">/</span><span class="n">L</span><span class="p">)</span><span class="o">..............................................................</span> <span class="o">=</span>
+        <span class="o">*</span> <span class="n">A</span>  <span class="o">=</span> <span class="n">Auto</span><span class="o">-</span><span class="n">casing</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">UL</span> <span class="o">=</span> <span class="n">Upper</span> <span class="ow">and</span> <span class="n">Lower</span>
+        <span class="o">*</span> <span class="n">U</span>  <span class="o">=</span> <span class="n">Upper</span>
+        <span class="o">*</span> <span class="n">L</span>  <span class="o">=</span> <span class="n">Lower</span>
+
+
+<span class="o">*</span> <span class="n">US</span> <span class="n">ADDRESS</span> <span class="n">STANDARDIZATION</span> <span class="n">SERVICES</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">CASS</span> <span class="n">will</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">run</span> <span class="k">if</span> <span class="n">you</span> <span class="n">specify</span> <span class="n">Y</span> <span class="k">for</span> <span class="nb">any</span> <span class="n">other</span> <span class="n">services</span>
+<span class="n">A</span><span class="o">-</span><span class="n">CASS</span><span class="p">:</span> <span class="n">Coding</span> <span class="n">Accuracy</span> <span class="n">Support</span> <span class="n">System</span> <span class="n">Encoding</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">......................</span> <span class="o">=</span> <span class="n">Y</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">NCOA</span><span class="p">:</span> <span class="n">National</span> <span class="n">Change</span> <span class="n">of</span> <span class="n">Address</span> <span class="p">(</span><span class="n">NCOAlink</span><span class="p">)</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">........................</span> <span class="o">=</span> <span class="n">Y</span>
+        <span class="n">List</span> <span class="n">ID</span> <span class="p">(</span><span class="n">the</span> <span class="n">PAF</span> <span class="n">ID</span> <span class="k">for</span> <span class="n">NCOAlink</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span> <span class="n">DSF2</span><span class="p">)</span><span class="o">............................</span> <span class="o">=</span> <span class="n">P12345</span>
+
+        <span class="n">High</span> <span class="n">Match</span> <span class="n">Rate</span> <span class="n">Description</span> <span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">A</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">......................................</span> <span class="o">=</span>
+        <span class="o">*</span> <span class="n">N</span> <span class="o">=</span> <span class="n">Normal</span> <span class="n">Mail</span> <span class="n">File</span> <span class="p">(</span><span class="n">Default</span><span class="p">;</span> <span class="k">if</span> <span class="n">you</span><span class="s1">&#39;re not sure, use this setting)</span>
+        <span class="o">*</span> <span class="n">A</span> <span class="o">=</span> <span class="n">ANKLink</span> <span class="n">Processed</span> <span class="n">File</span> <span class="p">(</span><span class="n">Full</span> <span class="n">Service</span> <span class="n">Provider</span> <span class="n">only</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">R</span> <span class="o">=</span> <span class="n">Return</span> <span class="n">Mail</span> <span class="n">File</span>
+
+        <span class="n">Match</span> <span class="n">Logic</span> <span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="n">I</span><span class="o">/</span><span class="n">B</span><span class="o">/</span><span class="n">IB</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">.................................................</span> <span class="o">=</span>
+        <span class="o">*</span> <span class="n">S</span>  <span class="o">=</span> <span class="n">Business</span><span class="p">,</span> <span class="n">Individual</span><span class="p">,</span> <span class="ow">and</span> <span class="n">Family</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">I</span>  <span class="o">=</span> <span class="n">Individual</span> <span class="n">Only</span>
+        <span class="o">*</span> <span class="n">B</span>  <span class="o">=</span> <span class="n">Business</span> <span class="n">Only</span>
+        <span class="o">*</span> <span class="n">IB</span> <span class="o">=</span> <span class="n">Individual</span> <span class="k">with</span> <span class="n">Business</span>
+        <span class="o">*</span> <span class="n">R</span>  <span class="o">=</span> <span class="n">Individual</span> <span class="ow">and</span> <span class="n">Family</span>
+
+        <span class="n">Accepted</span> <span class="n">COA</span> <span class="n">Months</span> <span class="p">(</span><span class="mi">6</span> <span class="o">-</span> <span class="mi">48</span><span class="p">)</span> <span class="p">(</span><span class="n">Default</span> <span class="ow">is</span> <span class="mi">48</span><span class="p">)</span> <span class="o">............................</span> <span class="o">=</span>
+
+        <span class="n">Processing</span> <span class="n">First</span> <span class="n">Class</span> <span class="n">Mail</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..............................</span> <span class="o">=</span>
+        <span class="n">Processing</span> <span class="n">Periodicals</span> <span class="n">Mail</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">........................................</span> <span class="o">=</span>
+        <span class="n">Processing</span> <span class="n">Standard</span> <span class="n">Mail</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...........................................</span> <span class="o">=</span>
+        <span class="n">Processing</span> <span class="n">Package</span> <span class="n">Services</span> <span class="n">Mail</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...................................</span> <span class="o">=</span>
+        <span class="o">*</span> <span class="n">You</span> <span class="n">must</span> <span class="n">specify</span> <span class="n">Y</span> <span class="k">for</span> <span class="n">at</span> <span class="n">least</span> <span class="n">one</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">Processing</span> <span class="n">options</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">DSF</span><span class="p">:</span> <span class="n">Delivery</span> <span class="n">Sequence</span> <span class="n">File</span> <span class="n">Validation</span> <span class="p">(</span><span class="n">DSF2</span><span class="p">)</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">......................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">Specify</span> <span class="n">List</span> <span class="n">ID</span> <span class="n">above</span><span class="p">,</span> <span class="n">on</span> <span class="n">the</span> <span class="n">line</span> <span class="n">directly</span> <span class="n">below</span> <span class="n">A</span><span class="o">-</span><span class="n">NCOA</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">GEOCODING</span><span class="o">-</span><span class="n">CENT</span><span class="p">:</span> <span class="n">Centroid</span> <span class="n">Geocoding</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">.................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">GEOCODING</span><span class="o">-</span><span class="n">ROOF</span><span class="p">:</span> <span class="n">Rooftop</span> <span class="n">Geocoding</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">..................................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">Specify</span> <span class="n">only</span> <span class="n">one</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">Geocoding</span> <span class="n">services</span>
+
+
+<span class="n">A</span><span class="o">-</span><span class="n">DISTANCE</span><span class="p">:</span> <span class="n">Distance</span> <span class="n">Calculation</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.......................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">MOVEDISTANCE</span><span class="p">:</span> <span class="n">Move</span> <span class="n">Distance</span> <span class="n">Calculation</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..............................</span> <span class="o">=</span>
+
+
+<span class="o">*</span> <span class="n">CANADIAN</span> <span class="n">ADDRESS</span> <span class="n">STANDARDIZATION</span> <span class="n">SERVICES</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">Canadian</span> <span class="n">standardization</span> <span class="ow">and</span> <span class="n">NCOA</span> <span class="n">are</span> <span class="n">exclusive</span> <span class="kn">from</span> <span class="nn">all</span> <span class="n">other</span> <span class="n">services</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">CASS</span><span class="o">-</span><span class="n">CANADA</span><span class="p">:</span> <span class="n">Canadian</span> <span class="n">Address</span> <span class="n">Standardization</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">.....................</span>  <span class="o">=</span>
+<span class="o">*</span> <span class="n">A</span><span class="o">-</span><span class="n">CASS</span><span class="o">-</span><span class="n">CANADA</span> <span class="n">will</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">run</span> <span class="k">if</span> <span class="n">you</span> <span class="n">specify</span> <span class="n">Y</span> <span class="k">for</span> <span class="n">A</span><span class="o">-</span><span class="n">NCOA</span><span class="o">-</span><span class="n">CANADA</span>
+<span class="o">*</span> <span class="n">To</span> <span class="nb">set</span> <span class="n">output</span> <span class="n">casing</span><span class="p">,</span> <span class="n">use</span> <span class="n">the</span> <span class="n">CASE</span> <span class="n">option</span> <span class="n">listed</span> <span class="n">above</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">NCOA</span><span class="o">-</span><span class="n">CANADA</span><span class="p">:</span> <span class="n">Canadian</span> <span class="n">Change</span> <span class="n">of</span> <span class="n">Address</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.............................</span>  <span class="o">=</span>
+        <span class="n">CANADA</span> <span class="n">NCOA</span> <span class="n">USER</span> <span class="n">ID</span> <span class="p">(</span><span class="n">assigned</span> <span class="n">by</span> <span class="n">Canada</span> <span class="n">Post</span><span class="p">)</span><span class="o">...........................</span>  <span class="o">=</span>
+
+<span class="o">*</span> <span class="n">PRIVATE</span> <span class="n">CHANGE</span> <span class="n">OF</span> <span class="n">ADDRESS</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="n">A</span><span class="o">-</span><span class="n">PCOA</span><span class="p">:</span> <span class="n">Private</span> <span class="n">Change</span> <span class="n">of</span> <span class="n">Address</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">......................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">PCOAPLUS</span><span class="p">:</span> <span class="n">Enhanced</span> <span class="n">Private</span> <span class="n">Change</span> <span class="n">of</span> <span class="n">Address</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">.......................</span> <span class="o">=</span>
+
+
+<span class="o">*</span> <span class="n">DEDUPLICATION</span> <span class="n">PROCESS</span>
+<span class="o">*----------------------------------------------------------------------------</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEDUPE</span><span class="p">:</span> <span class="n">Deduplication</span> <span class="n">process</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.......................................</span>  <span class="o">=</span>
+        <span class="n">Dedupe</span> <span class="n">Match</span> <span class="n">Level</span> <span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="n">F</span><span class="o">/</span><span class="n">I</span><span class="p">)</span><span class="o">..............................................</span>  <span class="o">=</span>
+        <span class="o">*</span> <span class="n">A</span>  <span class="o">=</span> <span class="n">Address</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">F</span>  <span class="o">=</span> <span class="n">Family</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">last</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">address</span> <span class="n">match</span>
+        <span class="o">*</span> <span class="n">I</span>  <span class="o">=</span> <span class="n">Individual</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">first</span> <span class="n">name</span><span class="p">,</span> <span class="n">last</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">address</span> <span class="n">match</span>
+
+
+<span class="o">*</span> <span class="n">SUPPRESSION</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="n">A</span><span class="o">-</span><span class="n">BANKRUPTCY</span><span class="p">:</span> <span class="n">Bankruptcy</span> <span class="n">Suppression</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">.................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DECEASED</span><span class="p">:</span> <span class="n">Deceased</span> <span class="n">Suppression</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">.....................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DMA</span><span class="p">:</span> <span class="n">Pander</span> <span class="n">Suppression</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">............................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">NURSINGHOME</span><span class="p">:</span> <span class="n">Nursing</span> <span class="n">Home</span> <span class="n">Suppression</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">..............................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">PRISON</span><span class="p">:</span> <span class="n">Prison</span> <span class="n">Suppression</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">.........................................</span> <span class="o">=</span>
+
+
+<span class="o">*</span> <span class="n">DEMOGRAPHIC</span> <span class="n">APPEND</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">FULL</span><span class="p">:</span> <span class="n">Full</span> <span class="n">Demographic</span> <span class="n">Enhancement</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..............................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">If</span> <span class="n">you</span> <span class="n">specify</span> <span class="n">Y</span> <span class="n">then</span> <span class="nb">all</span> <span class="n">A</span><span class="o">-</span><span class="n">DEMO</span> <span class="n">items</span> <span class="n">below</span> <span class="n">plus</span> <span class="n">A</span><span class="o">-</span><span class="n">RES</span><span class="o">-</span><span class="n">PHONE</span> <span class="n">are</span> <span class="n">included</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">AGE</span><span class="o">-</span><span class="n">EST</span><span class="p">:</span> <span class="n">Age</span> <span class="n">Append</span> <span class="n">Estimated</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">AGE</span><span class="o">-</span><span class="n">EXACT</span><span class="p">:</span> <span class="n">Age</span> <span class="n">Append</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...........................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">DOB</span><span class="p">:</span> <span class="n">Date</span> <span class="n">of</span> <span class="n">Birth</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..............................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">EDUCATION</span><span class="p">:</span> <span class="n">Education</span> <span class="n">Level</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">......................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">OCCUPATION</span><span class="p">:</span> <span class="n">Occupation</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..........................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">HOMEOWNER</span><span class="p">:</span> <span class="n">Homeowner</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">............................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">HOMEVALUE</span><span class="p">:</span> <span class="n">Home</span> <span class="n">Value</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...........................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">MEDHOMEVAL</span><span class="p">:</span> <span class="n">Median</span> <span class="n">Home</span> <span class="n">Value</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">INCOME</span><span class="p">:</span> <span class="n">Estimated</span> <span class="n">Income</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">........................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">MEDINCOME</span><span class="p">:</span> <span class="n">Median</span> <span class="n">Income</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">........................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">NETWORTH</span><span class="p">:</span> <span class="n">Net</span> <span class="n">Worth</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.............................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">MARITAL</span><span class="p">:</span> <span class="n">Marital</span> <span class="n">Status</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.........................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">PRES</span><span class="o">-</span><span class="n">CHILD</span><span class="p">:</span> <span class="n">Children</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">............................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">NUMCHILD</span><span class="p">:</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">Children</span> <span class="n">Present</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">............................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">MFDU</span><span class="p">:</span> <span class="n">Multi</span><span class="o">-</span><span class="n">Family</span> <span class="n">Dwelling</span> <span class="n">Unit</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">UNITSIZE</span><span class="p">:</span> <span class="n">Dwelling</span> <span class="n">Unit</span> <span class="n">Size</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">....................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">PROPTYPE</span><span class="p">:</span> <span class="n">Property</span> <span class="n">Type</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.........................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">LOR</span><span class="p">:</span> <span class="n">Length</span> <span class="n">of</span> <span class="n">Residence</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">........................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">HOUSECOMP</span><span class="p">:</span> <span class="n">Household</span> <span class="n">Composition</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">PERHISPANIC</span><span class="p">:</span> <span class="n">Percent</span> <span class="n">Hispanic</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...................................</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DEMO</span><span class="o">-</span><span class="n">MAILORDER</span><span class="p">:</span> <span class="n">Mail</span> <span class="n">order</span> <span class="n">responder</span> <span class="n">general</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.........................</span> <span class="o">=</span>
+
+
+<span class="o">*</span> <span class="n">PHONE</span> <span class="n">APPEND</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="n">A</span><span class="o">-</span><span class="n">RES</span><span class="o">-</span><span class="n">PHONE</span><span class="p">:</span> <span class="n">Residential</span> <span class="n">Phone</span> <span class="n">Append</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..................................</span> <span class="o">=</span>
+        <span class="n">Phone</span> <span class="n">Match</span> <span class="n">Confidence</span> <span class="n">Level</span> <span class="p">(</span><span class="mi">1</span> <span class="n">thru</span> <span class="mi">6</span><span class="p">)</span><span class="o">..................................</span> <span class="o">=</span>
+        <span class="o">*</span> <span class="n">Six</span> <span class="n">levels</span> <span class="n">of</span> <span class="n">confidence</span> <span class="n">are</span> <span class="n">available</span>
+        <span class="o">*</span> <span class="n">The</span> <span class="n">lower</span> <span class="n">the</span> <span class="n">number</span><span class="p">,</span> <span class="n">the</span> <span class="n">tighter</span> <span class="n">the</span> <span class="n">match</span>
+        <span class="o">*</span> <span class="n">Defaults</span> <span class="n">to</span> <span class="mi">4</span> <span class="n">when</span> <span class="n">A</span><span class="o">-</span><span class="n">NCOA</span> <span class="ow">is</span> <span class="n">processed</span><span class="p">,</span> <span class="mi">6</span> <span class="n">when</span> <span class="n">A</span><span class="o">-</span><span class="n">NCOA</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">processed</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">RES</span><span class="o">-</span><span class="n">PHONE</span><span class="o">-</span><span class="n">TPS</span><span class="p">:</span> <span class="n">Residential</span> <span class="n">Phone</span> <span class="n">Append</span> <span class="n">TPS</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..........................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">If</span> <span class="n">you</span> <span class="n">specify</span> <span class="n">A</span><span class="o">-</span><span class="n">RES</span><span class="o">-</span><span class="n">PHONE</span><span class="o">-</span><span class="n">TPS</span> <span class="n">then</span> <span class="n">phone</span> <span class="n">numbers</span> <span class="n">that</span> <span class="n">match</span> <span class="n">either</span>
+<span class="o">*</span> <span class="n">the</span> <span class="n">Federal</span> <span class="ow">or</span> <span class="n">State</span> <span class="n">Do</span> <span class="n">Not</span> <span class="n">Call</span> <span class="n">lists</span> <span class="n">will</span> <span class="n">be</span> <span class="n">removed</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">You</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">receive</span> <span class="n">phone</span> <span class="n">numbers</span> <span class="k">for</span> <span class="n">these</span> <span class="n">records</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">If</span> <span class="n">you</span> <span class="n">specify</span> <span class="n">A</span><span class="o">-</span><span class="n">RES</span><span class="o">-</span><span class="n">PHONE</span><span class="o">-</span><span class="n">TPS</span> <span class="n">then</span> <span class="n">you</span> <span class="n">must</span> <span class="n">also</span> <span class="n">specify</span> <span class="n">A</span><span class="o">-</span><span class="n">RES</span><span class="o">-</span><span class="n">PHONE</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">RES</span><span class="o">-</span><span class="n">TPS</span><span class="p">:</span> <span class="n">TPS</span> <span class="n">on</span> <span class="n">Existing</span> <span class="n">Phones</span> <span class="n">Only</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.................................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">Phone</span> <span class="n">numbers</span> <span class="n">that</span> <span class="n">match</span> <span class="n">either</span> <span class="n">the</span> <span class="n">Federal</span><span class="p">,</span> <span class="n">State</span> <span class="ow">or</span> <span class="n">Wireless</span>
+<span class="o">*</span> <span class="n">Do</span> <span class="n">Not</span> <span class="n">Call</span> <span class="n">lists</span> <span class="n">will</span> <span class="n">be</span> <span class="n">flagged</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">You</span> <span class="n">may</span> <span class="n">specify</span> <span class="n">either</span> <span class="n">A</span><span class="o">-</span><span class="n">RES</span><span class="o">-</span><span class="n">TPS</span> <span class="ow">or</span> <span class="n">A</span><span class="o">-</span><span class="n">RES</span><span class="o">-</span><span class="n">PHONE</span><span class="p">,</span> <span class="n">but</span> <span class="ow">not</span> <span class="n">both</span><span class="o">.</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">PHONE</span><span class="o">-</span><span class="n">DISCONNECT</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.....................................................</span> <span class="o">=</span>
+
+<span class="o">*</span> <span class="n">GENDER</span> <span class="n">AND</span> <span class="n">NAME</span> <span class="n">PARSING</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="n">A</span><span class="o">-</span><span class="n">GENDER</span><span class="p">:</span> <span class="n">Gender</span> <span class="n">Append</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">................................................</span>  <span class="o">=</span>
+<span class="o">*</span> <span class="n">Parses</span> <span class="n">names</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">an</span> <span class="nb">input</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">assigns</span> <span class="n">a</span> <span class="n">gender</span> <span class="n">to</span> <span class="n">each</span> <span class="n">row</span><span class="o">.</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">NAMEPARSE</span><span class="p">:</span> <span class="n">Name</span> <span class="n">Parsing</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..............................................</span>  <span class="o">=</span>
+<span class="o">*</span> <span class="n">Splits</span> <span class="n">names</span> <span class="n">present</span> <span class="ow">in</span> <span class="n">an</span> <span class="nb">input</span> <span class="n">file</span> <span class="n">into</span> <span class="n">their</span> <span class="n">constituent</span> <span class="n">parts</span>
+<span class="o">*</span> <span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span><span class="o">.</span>
+        <span class="n">Guess</span> <span class="n">Missing</span> <span class="n">Prefix</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...............................................</span>  <span class="o">=</span>
+        <span class="o">*</span> <span class="n">If</span> <span class="n">Guess</span> <span class="n">Missing</span> <span class="n">Prefix</span> <span class="ow">is</span> <span class="n">Y</span><span class="p">,</span> <span class="nb">any</span> <span class="n">names</span> <span class="n">that</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">a</span> <span class="n">prefix</span>
+        <span class="o">*</span> <span class="p">(</span><span class="n">Mr</span><span class="o">.</span><span class="p">,</span> <span class="n">Mrs</span><span class="o">.</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span><span class="p">)</span> <span class="n">will</span> <span class="n">have</span> <span class="n">one</span> <span class="n">assigned</span> <span class="n">based</span> <span class="n">on</span> <span class="n">the</span> <span class="n">assumed</span> <span class="n">gender</span> <span class="n">of</span>
+        <span class="o">*</span> <span class="n">the</span> <span class="n">name</span><span class="o">.</span> <span class="n">If</span> <span class="n">Guess</span> <span class="n">Missing</span> <span class="n">Prefix</span> <span class="ow">is</span> <span class="n">N</span><span class="p">,</span> <span class="n">only</span> <span class="n">rows</span> <span class="n">that</span> <span class="n">had</span> <span class="n">a</span> <span class="n">prefix</span> <span class="ow">in</span>
+        <span class="o">*</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">data</span> <span class="n">will</span> <span class="n">have</span> <span class="n">a</span> <span class="n">prefix</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">parsed</span> <span class="n">data</span><span class="o">.</span> <span class="n">The</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">N</span><span class="o">.</span>
+        <span class="o">*</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">data</span> <span class="n">will</span> <span class="n">have</span> <span class="n">a</span> <span class="n">prefix</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">parsed</span> <span class="n">data</span><span class="o">.</span> <span class="n">The</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">N</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>(Those lines that begin with asterisks are comments to help guide you and are not processed by FAST.)</p>
+<p>But you don’t have to use our template to specify the services you want.  You can instead specify only what you want and leave the rest out.  For example, this is equivalent to the complete template shown above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">-</span><span class="n">CASS</span> <span class="o">=</span> <span class="n">Y</span>
+<span class="n">A</span><span class="o">-</span><span class="n">NCOA</span> <span class="o">=</span> <span class="n">Y</span>
+<span class="n">List</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">P12345</span>
+</pre></div>
+</div>
+<p>All our FAST system really needs are the phrases it’s looking for separated from your specifications by Equals symbols.</p>
+<div class="section" id="what-makes-a-phrase">
+<h2>What makes a phrase?<a class="headerlink" href="#what-makes-a-phrase" title="Permalink to this headline">¶</a></h2>
+<p>FAST reads from the beginning of a line up to the first Colon, Open Parenthesis, or Equals symbol; trims any leading and trailing spaces; and looks for that string of characters in its list of phrases.  If there’s a match, FAST uses the value on the right side of the Equals symbol as your specification.</p>
+</div>
+<div class="section" id="custom-fastservices-txt-templates">
+<h2>Custom FASTservices.txt Templates<a class="headerlink" href="#custom-fastservices-txt-templates" title="Permalink to this headline">¶</a></h2>
+<p>You can even make your own custom template for use inside your company, containing just the services you typically use, and with only those comments and phrase instructions you might need:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">FASTservices</span> <span class="n">template</span> <span class="k">for</span> <span class="n">XYZ</span> <span class="n">Company</span> <span class="n">of</span> <span class="n">America</span>
+
+<span class="n">A</span><span class="o">-</span><span class="n">CASS</span><span class="o">=</span><span class="n">Y</span>
+<span class="n">A</span><span class="o">-</span><span class="n">NCOA</span> <span class="o">=</span>
+<span class="n">A</span><span class="o">-</span><span class="n">DSF</span> <span class="o">=</span>
+<span class="n">List</span> <span class="n">ID</span> <span class="p">(</span><span class="n">the</span> <span class="n">PAF</span> <span class="n">ID</span> <span class="k">for</span> <span class="n">NCOAlink</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span> <span class="n">DSF2</span> <span class="o">=</span> <span class="n">P12345</span>
+<span class="n">Match</span> <span class="n">Logic</span> <span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="n">I</span><span class="o">/</span><span class="n">B</span><span class="o">/</span><span class="n">IB</span><span class="o">/</span><span class="n">R</span><span class="p">)</span> <span class="n">John</span><span class="p">:</span> <span class="n">either</span> <span class="n">B</span> <span class="p">(</span><span class="n">business</span><span class="p">)</span> <span class="ow">or</span> <span class="n">IB</span> <span class="p">(</span><span class="n">individual</span> <span class="o">+</span> <span class="n">business</span><span class="p">)</span> <span class="o">=</span>
+<span class="n">Processing</span> <span class="n">First</span> <span class="n">Class</span> <span class="n">Mail</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">..............................</span> <span class="o">=</span>
+<span class="n">Processing</span> <span class="n">Periodicals</span> <span class="n">Mail</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">........................................</span> <span class="o">=</span>
+<span class="n">Processing</span> <span class="n">Standard</span> <span class="n">Mail</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...........................................</span> <span class="o">=</span>
+<span class="n">Processing</span> <span class="n">Package</span> <span class="n">Services</span> <span class="n">Mail</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">...................................</span> <span class="o">=</span>
+</pre></div>
+</div>
+<p>Whichever way you produce this file, it must be named either FASTservices.txt or named in the format FASTservices.YourOwnTextGoesHere.txt to be recognized by the FAST system.
+If you frequently order two or more specific sets of services from Peachtree Data, you might consider making a FASTservices template for each set, for example:</p>
+<ul class="simple">
+<li>FASTservices.CASSonly.txt (contains just A-CASS=Y)</li>
+<li>FASTservices.NCOA-DSF-P12345.txt (contains A-NCOA=Y and List ID=P12345)</li>
+<li>FASTservices.NCOA-DSF-P23456.txt (contains A-NCOA=Y and List ID=P23456)</li>
+</ul>
+<p>That way you can simply copy the pre-made template you need into the .Zip file you send us.</p>
+</div>
+<div class="section" id="services-notes">
+<h2>Services Notes<a class="headerlink" href="#services-notes" title="Permalink to this headline">¶</a></h2>
+<p>It’s always a good idea to familiarize yourself with Peachtree Data’s FASTservices.txt template because it can teach you a lot about which services and service processing options are available and which of those are required.  Here’s some guidance to help you along.</p>
+</div>
+<div class="section" id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this headline">¶</a></h2>
+<p>Each line that isn’t blank or doesn’t begin with an asterisk is a “specification” that tells FAST how you want it to process some detail of your job.</p>
+<p>All specifications are case-insensitive, so you don’t have to worry about uppercasing or lowercasing anything.  These two specifications are identical:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TruncLastName</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">=</span> <span class="n">Sub</span><span class="p">(</span><span class="n">Trim</span><span class="p">(</span><span class="n">LastName</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">trunclastname</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="o">=</span> <span class="n">sub</span><span class="p">(</span><span class="n">trim</span><span class="p">(</span><span class="n">lastname</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also, each specification must appear on a single line, which means that this will work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Record</span> <span class="n">Filter</span> <span class="o">=</span> <span class="n">NOT</span><span class="p">(</span><span class="n">Left</span><span class="p">(</span><span class="n">Standard</span><span class="o">.</span><span class="n">County</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;L&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>but this will not work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Record</span> <span class="n">Filter</span> <span class="o">=</span>
+<span class="n">NOT</span><span class="p">(</span>
+        <span class="n">Left</span><span class="p">(</span><span class="n">Standard</span><span class="o">.</span><span class="n">County</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;L&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="yes-no-test">
+<h2>Yes, No, Test<a class="headerlink" href="#yes-no-test" title="Permalink to this headline">¶</a></h2>
+<p>You’ll notice that some services give you the option for Yes and No (Y/N) while others offer Yes, No, and Test (Y/N/T) as processing options.</p>
+<p>If you leave a specification empty, that is the same as specifying N.</p>
+<p>If you specify Y, this instructs FAST to include that service when processing your job.</p>
+<p>If you specify T, this instructs FAST to include that service when processing your job at no charge - but you will not receive the results of those tested services in the output file we return to you.</p>
+<p>You will, however, receive two additional benefits:</p>
+<ul class="simple">
+<li>Your statistics reports will show what would have happened if you had actually purchased the tested services, and</li>
+<li>You will receive back an additional output file containing the additional columns (empty) that would have contained the results of those tested services.</li>
+</ul>
+</div>
+<div class="section" id="defaults">
+<h2>Defaults<a class="headerlink" href="#defaults" title="Permalink to this headline">¶</a></h2>
+<p>In our FASTservices.txt template, whenever you see a specification instruction that contains the word “Default” inside parentheses, FAST will automatically choose that value if FAST requires the specification and you didn’t specify one.</p>
+<p>For example, if you specify A-CASS or A-CASS-CANADA but don’t specify how it should handle Case:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">ADDRESS</span> <span class="n">STANDARDIZATION</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">Specify</span> <span class="n">output</span> <span class="n">casing</span><span class="p">,</span> <span class="k">if</span> <span class="n">left</span> <span class="n">blank</span> <span class="n">FAST</span> <span class="n">will</span> <span class="n">use</span> <span class="n">Auto</span><span class="o">-</span><span class="n">case</span> <span class="n">to</span>
+<span class="o">*</span> <span class="n">match</span> <span class="n">the</span> <span class="n">output</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">casing</span>
+<span class="n">Case</span> <span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="n">UL</span><span class="o">/</span><span class="n">U</span><span class="o">/</span><span class="n">L</span><span class="p">)</span><span class="o">..............................................................</span> <span class="o">=</span>
+        <span class="o">*</span> <span class="n">A</span>  <span class="o">=</span> <span class="n">Auto</span><span class="o">-</span><span class="n">casing</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">UL</span> <span class="o">=</span> <span class="n">Upper</span> <span class="ow">and</span> <span class="n">Lower</span>
+        <span class="o">*</span> <span class="n">U</span>  <span class="o">=</span> <span class="n">Upper</span>
+        <span class="o">*</span> <span class="n">L</span>  <span class="o">=</span> <span class="n">Lower</span>
+
+
+<span class="o">*</span> <span class="n">US</span> <span class="n">ADDRESS</span> <span class="n">STANDARDIZATION</span> <span class="n">SERVICES</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">CASS</span> <span class="n">will</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">run</span> <span class="k">if</span> <span class="n">you</span> <span class="n">specify</span> <span class="n">Y</span> <span class="k">for</span> <span class="nb">any</span> <span class="n">other</span> <span class="n">services</span>
+<span class="n">A</span><span class="o">-</span><span class="n">CASS</span><span class="p">:</span> <span class="n">Coding</span> <span class="n">Accuracy</span> <span class="n">Support</span> <span class="n">System</span> <span class="n">Encoding</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">......................</span> <span class="o">=</span> <span class="n">Y</span>
+</pre></div>
+</div>
+<p>then FAST will consider this the same as if you had explicitly specified A for Case:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">ADDRESS</span> <span class="n">STANDARDIZATION</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">Specify</span> <span class="n">output</span> <span class="n">casing</span><span class="p">,</span> <span class="k">if</span> <span class="n">left</span> <span class="n">blank</span> <span class="n">FAST</span> <span class="n">will</span> <span class="n">use</span> <span class="n">Auto</span><span class="o">-</span><span class="n">case</span> <span class="n">to</span>
+<span class="o">*</span> <span class="n">match</span> <span class="n">the</span> <span class="n">output</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">casing</span>
+<span class="n">Case</span> <span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="n">UL</span><span class="o">/</span><span class="n">U</span><span class="o">/</span><span class="n">L</span><span class="p">)</span><span class="o">..............................................................</span> <span class="o">=</span> <span class="n">A</span>
+        <span class="o">*</span> <span class="n">A</span>  <span class="o">=</span> <span class="n">Auto</span><span class="o">-</span><span class="n">casing</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span>
+        <span class="o">*</span> <span class="n">UL</span> <span class="o">=</span> <span class="n">Upper</span> <span class="ow">and</span> <span class="n">Lower</span>
+        <span class="o">*</span> <span class="n">U</span>  <span class="o">=</span> <span class="n">Upper</span>
+        <span class="o">*</span> <span class="n">L</span>  <span class="o">=</span> <span class="n">Lower</span>
+
+
+<span class="o">*</span> <span class="n">US</span> <span class="n">ADDRESS</span> <span class="n">STANDARDIZATION</span> <span class="n">SERVICES</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">CASS</span> <span class="n">will</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">run</span> <span class="k">if</span> <span class="n">you</span> <span class="n">specify</span> <span class="n">Y</span> <span class="k">for</span> <span class="nb">any</span> <span class="n">other</span> <span class="n">services</span>
+<span class="n">A</span><span class="o">-</span><span class="n">CASS</span><span class="p">:</span> <span class="n">Coding</span> <span class="n">Accuracy</span> <span class="n">Support</span> <span class="n">System</span> <span class="n">Encoding</span> <span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">......................</span> <span class="o">=</span> <span class="n">Y</span>
+</pre></div>
+</div>
+<p>If A-CASS were not specified then Case would have been completely ignored.</p>
+</div>
+<div class="section" id="automatic-corrections">
+<h2>Automatic Corrections<a class="headerlink" href="#automatic-corrections" title="Permalink to this headline">¶</a></h2>
+<p>To make things as easy as possible for you, FAST automatically chooses for you some of the dependent services which you may have overlooked, but there are some which FAST cannot choose for you.</p>
+<p>For example, since A-CASS is required for all services except A-REVERSEPHONE and A-APT-APPEND, FAST will automatically set A-CASS to Y if you forgot to do so.
+This prevents jobs from being rejected for minor obvious flaws in specifications.  So if your job is rejected because a dependency wasn’t specified then that dependency was one that FAST could not automatically correct for you.</p>
+</div>
+<div class="section" id="fastservices-txt-is-required">
+<h2>FASTservices.txt is Required<a class="headerlink" href="#fastservices-txt-is-required" title="Permalink to this headline">¶</a></h2>
+<p>FAST cannot process your job unless it contains a FASTservices.txt document, or one that fits the file naming convention mentioned earlier.</p>
+</div>
+<div class="section" id="where-to-find-the-template">
+<h2>Where to Find the Template<a class="headerlink" href="#where-to-find-the-template" title="Permalink to this headline">¶</a></h2>
+<p>Your copy of Peachtree Data’s FASTservices.txt template is in the FAST Starter Kit.zip that contained this document you’re now reading.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FASTInputFile.html" class="btn btn-neutral float-right" title="FASTinput.txt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="HowToPrepare.html" class="btn btn-neutral" title="How to Prepare and Submit a FAST Job" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Peachtree Data.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'alpha',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

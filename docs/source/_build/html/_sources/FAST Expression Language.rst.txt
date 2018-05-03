@@ -1,0 +1,221 @@
+FAST Expression Language (FXL)
+==============================
+
+The FAST Expression Language, also known as FXL, enables you to manipulate your original input data and the data resulting from processing services into the results you map to the columns of your output file(s).
+
+FXL is very similar to the expression languages built into familiar software products like Excel and FoxBase/Dbase, so it is very easy to write.
+
+FXL is also very forgiving; many conditions that might cause errors in other languages are simply ignored by FXL.  
+
+For example, the following expression is clearly faulty because it tries to evaluate a substring starting at position 9, but the source string "Hello" is only 5 characters long:
+
+Sub("Hello", 9, 3)
+
+Most languages would throw an exception in a case like this, but FXL simply returns an empty string.
+
+Take a look at the language reference below to get a good idea of how to write FXL expressions.
+
+If you need any help, please feel free to call your Account Representative at any time.  We are always here to serve you.
+FXL Reference
+
+Arguments shown as field or fieldN may also be literal strings.  Arguments shown as expression or expressionN must be expressions that return Boolean (true or false) values.
+
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Expression	                                         | Returns  | Description                                                                                                                 |
++========================================================+==========+=============================================================================================================================+
+| field1 Contains field2                                 | Boolean  | True if all of field2 is contained anywhere within field1.                                                                  |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| field1 BeginsWith field2                               | Boolean  | True if field2 is contained at the very beginning of field1.                                                                |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| field1 EndsWith field2                                 | Boolean  | True if field2 is contained at the very end of field1.                                                                      |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Empty(field)        	                                 | Boolean  | True if the field is either empty of any characters or includes only spaces.                                                |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Not(expression)                                        | Boolean  | True if the expression evaluates to False.                                                                                  |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| expression1 AND expression2        	                 | Boolean  | True if both expression1 and expression2 evaluate to True.                                                                  |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| expression1 OR expression2        	                 | Boolean  | True if either expression1 or expression2 evaluate to True.                                                                 |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Trim(field)          	                                 | String   | The contents of field trimmed of all leading and trailing spaces.                                                           |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Sub(field, startingPosition, length)                   | String   | The substring of field that is length characters long and starts at startingPosition (start of field is one).               |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Sub(field, startingPosition)                           | String   | The substring of field that includes all characters from startingPosition thru the end of field.                            |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Left(field, length)          	                         | String   | The first length characters of field.                                                                                       |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Right(field, length)                                   | String   | The last length characters of field.                                                                                        |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Iif(expression, resultIfTrue, resultIfFalse)           | String   | Either resultIfTrue if expression evaluates to True; otherwise, resultIfFalse.                                              |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| field1 & field2                                        | String   | The concatenation of field1 trimmed, a single space character, and field2 trimmed.                                          |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| field1 + field2                                        | String   | The concatenation of field1 and field2.                                                                                     |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| field1 = field2                                        | Boolean  | True if the fields are equal.  Text comparisons are case-insensitive, parameter is ‘mi’so JOHN = john returns True.         |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| field1 > field2                                        | Boolean  | True if field1 is greater than field2.                                                                                      |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| field1 >= field2                                       | Boolean  | True if field1 is greater than or equal to field2.                                                                          |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| field1 < field2                                        | Boolean  | True if field1 is less than field2.                                                                                         |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| field1 <= field2                                       | Boolean  | True if field1 is less than or equal to field2.                                                                             |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Find(field, stringToSearchFor)       	                 | Integer  | One-based index of first occurrence of stringToSearchFor; -1 if not found                                                   |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Length(field)       	                                 | Integer  | Length of value stored in field.                                                                                            |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Distance(lat1, long1, lat2, long2)          	         | String   | Distance between (lat1, long1) and (lat2, long2) in miles                                                                   |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+| Distance(lat1, long1, lat2, long2, type)               | String   | Distance between (lat1, long1) and (lat2, long2) in miles where the type parameter is ‘mi’ or kilometers where type is ‘km’ |
++--------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+
+
+One-Based Indexes
++++++++++++++++++
+
+All indexes used in FXL are one-based.  So the first character of the FirstName field would be returned by this FXL expression:
+
+Sub(FirstName, 1, 1)
+
+Because many scripting languages use zero-based indexes, FXL internally corrects attempts to use zero as the index into a string.  So this faulty FXL expression:
+
+Sub(FirstName, 0, 1)
+
+will be internally corrected to be:
+
+Sub(FirstName, 1, 1)
+
+Auto-Truncation
++++++++++++++++
+
+If an FXL expression attempts to map a value into a field that is specified to be shorter than the length of that value, FXL automatically truncates the value to fit the field.
+
+Auto-Trimming
++++++++++++++
+
+FXL does not automatically trim field values, except for the expression field1 & field2  string.
+
+Case Sensitivity
+++++++++++++++++
+
+FXL treats all comparisons in a case-insensitive manner.
+
+So these two FXL expressions are functionally identical, and will therefore produce the exact same results:
+
+iif(standard.state = "GA", "C", "U")
+
+iif(standard.state = "ga", "C", "U")
+
+Both function names and column names are case-insensitive, so the following two expressions are exactly equivalent:
+
+Sub(Trim(LastName), 1, 9)
+
+sub(trim(lastname), 1, 9)
+
+Reserved Words
+++++++++++++++
+
+Columns may not be named any of the following in any form of capitalization because they are reserved words used by the expression syntax:
+    Contains
+    BeginsWith
+    EndsWith
+    And
+    Or
+    True
+    False
+    Distance
+    MoveDistance
+
+Literals
+
+FAST supports three kinds of literals: plain strings of text, plain integers (whole numbers), and Booleans (True or False).  
+
+Neither integer literals nor Boolean literals require quotation marks.
+
+String literals must be surrounded with either single- or double-quotation marks. 
+
+A literal single-quote or double-quote character is escaped depending upon how the string that contains it is qualified (officially treated as a string).
+
+For example, if a string is qualified using double-quote characters like this:
+"I am a string literal"
+
+then placing a single-quote character inside that string literal would not have to be escaped:
+"I'm a string literal"
+
+because single-quote characters are not used for anything else with respect to that string literal.
+But if a string is qualified using single-quote characters like this:
+'I am a string literal'
+
+then placing a single-quote character inside that string literal would have to be escaped by doubling the literal single-quote character:
+'I''m a string literal'
+
+because single-quote characters are used both within the string literal and as the qualifier character for the entire string literal, escaping the literal single-quote character is the only way a machine can distinguish it from a qualifier character.
+Here are a few more examples.
+
+If a literal must contain a single quotation mark as printable text, any of these examples will work:
+
+"I'm a string literal"
+'I''m a string literal'
+"'British' style"
+'''British'' style'
+
+If a literal must contain a double quotation mark as printable text, any of these examples will work:
+
+'I"m a string literal'
+"I""m a string literal"
+'"American" style'
+"""American"" style"
+
+You can substitute literals for fields, like this: 
+
+field1 Contains "Corp"
+field1 Contains 'Corp'
+
+You can also substitute expressions for fields, like this: 
+
+field1 Contains Sub(field2, 5, 16)
+Sub(Iif(Not(Empty(field1 & field2)), field1 & field2, field3), 3, 11)
+
+The Sub() Function
+++++++++++++++++++
+
+The Sub() function will always return a string, even if the parameters are incorrect.  For example, if the expression Sub(field1, 5, 12) is evaluated for a particular row where the value for field1 for is only 3 characters long, it will return an empty string.
+
+The Distance() Function
++++++++++++++++++++++++
+
+The Distance() function expects one latitude and longitude pair passed to it to calculate the distance between a fixed point and each address in the file. The 5th parameter, type, is optional and if omitted the function returns the distance in miles. Type can be either ‘mi’ for miles or ‘km’ for kilometers.
+
+    1. Use the function to output the distance for all individuals’ addresses in the file to a fixed location in miles (either of these will work).
+        dist_mi(6) = DISTANCE(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381)
+        dist_mi(6) = DISTANCE(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381,'mi')
+
+    2. Use the function to output the distance for all individuals’ addresses in the file to a fixed location in kilometers.
+        dist_km(6) = DISTANCE(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381,'km')
+
+    3. Use the function to create different output files based on the change of address distance.
+        Record Filter=Distance(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381) < 5
+
+    4. Use the function in combination with other functions in the FAST expression language (FXL).
+        eval(15) = iif(distance(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381) < 5, 'Less than 5', ‘Not less than 5')
+
+Precedence of Evaluation
+++++++++++++++++++++++++
+
+Parentheses may be used to control precedence of evaluation.  For example, if Age contains 25 and Weight contains 185:
+
+Factor(10) = iif(Age < 7 AND Weight > 70 OR Age > 20 AND Weight < 200, 20, 0.5)
+
+results in 0.5, but
+
+Factor(10) = iif((Age < 7 AND Weight > 70) OR (Age > 20 AND Weight < 200), 20, 0.5)
+
+results in 20.
+
+Auto-Conversion During Comparisons
+++++++++++++++++++++++++++++++++++
+Comparators for equality, greater than, greater than or equal to, less than, and less than or equal to first attempt to convert the values to numbers before comparing them.
+If the values cannot be converted to numbers then they are compared as strings (text).

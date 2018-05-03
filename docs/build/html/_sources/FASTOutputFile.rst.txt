@@ -1,0 +1,240 @@
+FASTOutput.txt
+==============
+
+:download:`FASTOutput.txt</files/FASToutput.txt>`
+
+.. note:: If you just want us to put all your processed records into a single output file that is the same file type (e.g., .dbf, .csv) as your original data input file and that has the default data columns for the services we processed plus a copy of all your original data, and then don't include a FASToutput.txt in the Zip file you send us.
+
+
+FASToutput.txt isn't very complicated, but there's more to it than either FASTservices.txt or FASTinput.txt, so let's discuss it a bit.
+One piece of good news is that FASToutput.txt is entirely optional, so you may not even need to create one.
+
+
+In this case, this single output file will be named using the characters before the first period in your job's Zip file name.
+
+But if you want a different data file format (Fixed, Delimited, or Dbase) than your original data input file, or you want multiple output files containing specific records based on filtering criteria, or different sets of columns for each file, or anything outside the default described above in bold, then you'll need to include a FASToutput.txt file in the Zip file you send us.
+
+Peachtree Data can provide you with a standard FASToutput.txt template that contains all possible output specifications plus comments to guide you. Here is an example that specifies a single output file in Dbase format named cust.dbf that contains all records, and the output columns in this file will be id, fullname, address1, address2, city, state, zip, and prospctgrp::
+
+    * ------------------------------ FASToutput -------------------------------
+    OUTPUT OPTIONS
+    * ---------------------------------------------------------------------------
+    * These apply to all output files you specify in the OUTPUT FILE section(s).
+
+    Output Data File Type: (Fixed, DBase, Delimited)............................. = Dbase
+    * Fixed = Fixed-width ASCII (.txt)
+    * Dbase = DBase3 (.dbf)
+    * Delimited = ASCII file delimited by a specific character
+    * Defaults to Input Data File Type if not specified.
+    * This will be used for all output files.
+
+    Output Delimiter: (Comma, Tab, Pipe)......................................... =
+    * If Delimited is specified directly above
+    * Comma = Commas mark the boundaries of each column (.csv)
+    * Tab = Tab characters mark the boundaries of each column (.txt)
+    * Pipe = Pipe characters mark the boundaries of each column (.txt)
+    * Defaults to Input Delimiter if not specified.
+
+    Output Each Record: (Once/All)............................................... =
+    * Once = (Default) Evaluate records against each Record Filter in the
+    * order listed in the OUTPUT FILES section, but output to only
+    * the first output file whose Record Filter evaluates to True.
+    * All = Evaluate records against each Record Filter in the order
+    * listed in the OUTPUT FILES section, and output to all
+    * Output Files whose Record Filters evaluate to True.
+
+    Output Text Qualifier: (None/Quote).......................................... =
+    * None = (Default) Do not surround output values with double-quotes
+    * unless the value contains a delimiter character.
+    * Quote = Surround all output values with double-quotes regardless of
+    * whether or not they contain a delimiter character.
+
+    UNFILTERED RECORDS FILE
+
+    Unfiltered Record Handling: (Default/Ignore)................................. =
+    * Default = (Default) If a record does not match any of the
+    * Record Filters below, then output it to the
+    * Unfiltered Records File.
+    * Ignore = If a record does not match any of the Record Filters
+    * below, then ignore it.
+
+    Unfiltered Records File Name:................................................ =
+    * You may use any file name extension up to 10 characters long.
+    * If you do not specify a file name extension then one will be created based
+    * on the Output Data File Type and Output Delimiter:
+    * Fixed = .txt
+    * Dbase = .dbf
+    * Delimited, comma = .csv
+    * Delimited, pipe = .txt
+    * Delimited, tab = .txt
+    *
+    * Records that do not match any of the Record Filters below
+    * will be put into this file.
+    
+    * Defaults to a file named UnfilteredRecords with the same
+    * file name extension used for the Output Data File Type.
+
+    * ---------------------------------------------------------------------------
+    * Define the columns in the Unfiltered Records File below this line.
+    * (default: FAST.#DefaultOutputFields# followed by original.#AllInputFields#)
+
+    * Examples:
+
+    * CompanyName(30) = original.firm
+    * FactorCode(2) = iif(sub(trim(original.firm), 1, 3) = "Fed", "FE", "CL")
+
+    * (refer to "How to Prepare and Submit a FAST Job" for full details)
+    * ---------------------------------------------------------------------------
+
+    OUTPUT FILE
+    * ---------------------------------------------------------------------------
+    * This is a processed file that Peachtree Data sends back to you.
+    *
+    * If you want us to return multiple output files to you, just copy and paste
+    * the entire OUTPUT FILE section multiple times and modify the specifications
+    * as needed.
+
+    Output File Name:............................................................ = cust
+    * You may use any file name extension up to 10 characters long.
+    * If you do not specify a file name extension then one will be created based
+    * on the Output Data File Type and Output Delimiter:
+    * Fixed = .txt
+    * Dbase = .dbf
+    * Delimited, comma = .csv
+    * Delimited, pipe = .txt
+    * Delimited, tab = .txt
+
+    Record Filter:............................................................... =
+    * If you want only certain records in this output file, specify the
+    * expression here.
+
+    * Examples:
+    * original.CreditScore >= 700 --> CreditScore greater than or equal to 700
+    * Left(standard.Zip, 3) = "303" --> Zip begins with 303
+
+    * ---------------------------------------------------------------------------
+    * Define the columns in this Output File below this line.
+    * (default: FAST.#DefaultOutputFields# followed by original.#AllInputFields#)
+
+    id(7) = pix.rowid
+    fullname(30) = original.fullname
+    address1(40) = standard.address.primary
+    address2(40) = standard.address.secondary
+    city(20) = standard.city
+    state(2) = standard.state
+    zip(10) = standard.zip10
+    prospctgrp(3) = iif(sub(coa.zip, 1, 3) = "303", "ATL", "OTH")
+
+    * Examples:
+
+    * CompanyName(30) = original.firm
+    * FactorCode(2) = iif(sub(trim(original.firm), 1, 3) = "Fed", "FE", "CL")
+    * (refer to "How to Prepare and Submit a FAST Job" for full details)
+    * ---------------------------------------------------------------------------
+
+Just like FASTservices.txt and FASTinput.txt, FASToutput.txt doesn’t have to use Peachtree Data’s template. You can instead specify only what you want and leave the rest out. For example, this is equivalent to the complete template shown above::
+
+    Output Data File Type = Dbase
+    OUTPUT FILE
+    Output File Name = cust
+    id(7) = pix.rowid
+    fullname(30) = original.fullname
+    address1(40) = standard.address.primary
+    address2(40) = standard.address.secondary
+    city(20) = standard.city
+    state(2) = standard.state
+    zip(10) = standard.zip10
+    prospctgrp(3) = iif(sub(coa.zip, 1, 3) = "303", "ATL", "OTH")
+
+What Does Original.FieldName Mean?
+++++++++++++++++++++++++++++++++++
+
+``Original.`` is the prefix that identifies the location of the field name in Original.FieldName as being your original data input file.
+So if your data input file contains a four-character field named MarketingCode and you want to copy that field as the third field in the processed output file, your output column mapping will look something like this::
+
+    id(7) = pix.rowid
+    fullname(30) = original.fullname
+    marketingcode(4) = original.marketingcode
+    address1(40) = standard.address.primary
+    address2(40) = standard.address.secondary
+    ...    
+
+Custom FASToutput.txt Templates
++++++++++++++++++++++++++++++++
+
+Just like with FASTservices.txt and FASTinput.txt, you can create one or more of your own custom FASToutput.txt templates for use inside your company.
+
+If you require more than a single output file or have complicated output column mapping expressions you use on multiple projects then it's a good idea to create a custom template with those specifications and just copy (and edit, if necessary) the template for each new job.
+
+This is especially useful for seasonal marketing campaigns that produce the same output files based on the same record filters.
+
+Whichever way you produce this file, it must be named either FASToutput.txt or named in the format FASToutput.YourOwnTextGoesHere.txt.
+
+Output Notes
+++++++++++++
+
+It’s always a good idea to familiarize yourself with Peachtree Data’s FASToutput.txt template because it can teach you a lot about which data output processing options are available and which of those are required. Here’s some guidance to help you along.
+
+Section Headings
+++++++++++++++++
+
++-------------------------+------------------------------------------------------------------------------+ 
+| Output Options          | **The Output Options section is optional.**                                  | 
+|                         |                                                                              |
+|                         | An Output Options section may appear anywhere within ``FASToutput.txt``.     |
+|                         | Your FASToutput.txt may contain only one Output Options section.             |
+|                         |                                                                              |
+|                         | If you do not include an Output Options section in your ``FASToutput.txt``   |
+|                         | then FAST will use all default values for each specification in the          |
+|                         | Output Options section.                                                      |
++-------------------------+------------------------------------------------------------------------------+
+| Unfiltered Records File | **The Unfiltered Records File section is optional.**                         | 
+|                         |                                                                              |
+|                         | Your ``FASToutput.txt`` may contain only one Unfiltered Records File section.|
+|                         |                                                                              |
+|                         | If you do not include an Unfiltered Records File section in your             |
+|                         | ``FASToutput.txt`` then FAST will use all default values for each            |
+|                         | specification in the Unfiltered Records File section.                        |
++-------------------------+------------------------------------------------------------------------------+
+| Output File             | **The Unfiltered Records File section is optional.**                         | 
+|                         |                                                                              |
+|                         | Each Output File section specifies a separate output file.                   |
+|                         |                                                                              |
+|                         | You may include up to 25 Output File sections.                               |
+|                         |                                                                              |
+|                         | If you do not include an Output File section in your ``FASToutput.txt`` then |
+|                         | FAST will create a single Output File section that uses default values       |
+|                         | for each specification.                                                      |
++-------------------------+------------------------------------------------------------------------------+
+
+Section Order
++++++++++++++
+
+FASTinput.txt sections may appear in any order you prefer.
+
+Input Delimiter
++++++++++++++++
+Applies only when the input data file type is Delimited.
+
+First Row Contains Column Names
++++++++++++++++++++++++++++++++
+
+Applies only when the input data file type is Delimited.
+
+When First Row Contains Column Names is set to Y, FAST ignores the entire Input Column Specifications if you included one.  In this case, FAST discovers column names and sizes by inspecting the input data file itself.
+
+Name Format
++++++++++++
+
+The three full name format options shown in our FASTinput.txt template are the only three recognized by FAST.  
+
+====== ===========================  ============================
+Value  Description                  Example
+====== ===========================  ============================
+FML    First Middle Last            "John Fitzgerald Doe" or "John Doe" (Default)
+LCFM   Last, First Middle           "Doe, John Fitzgerald" or "Doe, John"
+LFM    Last First Middle            "Doe John Fitzgerald" or "Doe John"
+====== ===========================  ============================
+
+FASTinput.txt is Required
+FAST cannot process your job unless it contains a FASTinput.txt document, or one that fits the file naming convention mentioned earlier.

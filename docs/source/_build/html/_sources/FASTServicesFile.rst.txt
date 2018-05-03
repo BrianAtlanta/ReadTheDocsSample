@@ -1,0 +1,331 @@
+FASTServices.txt
+================
+
+:download:`FASTServices.txt</files/FASTServices.txt>`
+
+
+Peachtree Data can provide you with a standard ``FASTservices.txt`` template that contains all possible service specifications plus comments to guide you.  Here is an example that specifies processing CASS and NCOA::
+
+
+	* -----------------------------  FASTservices  ------------------------------
+
+	* NOTE: When you see (Y/N/T) below that means:
+	* Y = Yes
+	* N = No
+	* T = Test Only
+	*
+	* Testing a service does all the same processing and reporting of a 
+	* normal service, except that it neither costs you anything nor returns 
+	* the processed data to you.  You will, however, receive the reports that 
+	* show you what you would have received back if you had specified the 
+	* actual service.  This is a great way to see -- free of charge -- how 
+	* Peachtree Data could have better served your data hygiene needs.
+	*
+	* When you see (Y/N) that means the service is not available for testing.
+
+
+	* REVERSE PHONE APPEND
+	* ---------------------------------------------------------------------------
+	A-REVERSEPHONE: Reverse Phone Append (Y/N).................................... = 
+
+
+	* APARTMENT APPEND
+	* ---------------------------------------------------------------------------
+	A-APT-APPEND: Apartment Number Append (Y/N).................................. = 
+
+
+	* ADDRESS STANDARDIZATION
+	* ---------------------------------------------------------------------------
+	* Specify output casing, if left blank FAST will use Auto-case to
+	* match the output to the input casing 
+	Case (A/UL/U/L).............................................................. = 
+		* A  = Auto-casing (Default)
+		* UL = Upper and Lower
+		* U  = Upper
+		* L  = Lower
+
+
+	* US ADDRESS STANDARDIZATION SERVICES
+	* ---------------------------------------------------------------------------
+	* CASS will be automatically run if you specify Y for any other services
+	A-CASS: Coding Accuracy Support System Encoding (Y/N/T)...................... = Y    
+
+	A-NCOA: National Change of Address (NCOAlink) (Y/N/T)........................ = Y
+		List ID (the PAF ID for NCOAlink and/or DSF2)............................ = P12345
+
+		High Match Rate Description (N/A/R)...................................... = 
+		* N = Normal Mail File (Default; if you're not sure, use this setting)
+		* A = ANKLink Processed File (Full Service Provider only)             
+		* R = Return Mail File   
+
+		Match Logic (S/I/B/IB/R)................................................. = 
+		* S  = Business, Individual, and Family (Default)
+		* I  = Individual Only
+		* B  = Business Only
+		* IB = Individual with Business
+		* R  = Individual and Family
+
+		Accepted COA Months (6 - 48) (Default is 48) ............................ = 
+
+		Processing First Class Mail (Default) (Y/N).............................. = 
+		Processing Periodicals Mail (Y/N)........................................ = 
+		Processing Standard Mail (Y/N)........................................... = 
+		Processing Package Services Mail (Y/N)................................... = 
+		* You must specify Y for at least one of the above Processing options 
+
+	A-DSF: Delivery Sequence File Validation (DSF2) (Y/N/T)...................... = 
+	* Specify List ID above, on the line directly below A-NCOA
+
+	A-GEOCODING-CENT: Centroid Geocoding (Y/N/T)................................. = 
+	A-GEOCODING-ROOF: Rooftop Geocoding (Y/N/T).................................. = 
+	* Specify only one of the above Geocoding services
+
+
+	A-DISTANCE: Distance Calculation (Y/N)....................................... = 
+	A-MOVEDISTANCE: Move Distance Calculation (Y/N).............................. =
+
+
+	* CANADIAN ADDRESS STANDARDIZATION SERVICES
+	* ---------------------------------------------------------------------------
+	* Canadian standardization and NCOA are exclusive from all other services
+
+	A-CASS-CANADA: Canadian Address Standardization (Y/N/T).....................  = 
+	* A-CASS-CANADA will be automatically run if you specify Y for A-NCOA-CANADA
+	* To set output casing, use the CASE option listed above 
+
+	A-NCOA-CANADA: Canadian Change of Address (Y/N).............................  =
+		CANADA NCOA USER ID (assigned by Canada Post)...........................  =
+		
+	* PRIVATE CHANGE OF ADDRESS
+	* ---------------------------------------------------------------------------
+	A-PCOA: Private Change of Address (Y/N)...................................... = 
+	A-PCOAPLUS: Enhanced Private Change of Address (Y/N/T)....................... =
+
+
+	* DEDUPLICATION PROCESS
+	*----------------------------------------------------------------------------
+	A-DEDUPE: Deduplication process (Y/N).......................................  = 
+		Dedupe Match Level (A/F/I)..............................................  = 
+		* A  = Address (Default)
+		* F  = Family which is a last name and address match
+		* I  = Individual which is a first name, last name and address match
+
+
+	* SUPPRESSION
+	* ---------------------------------------------------------------------------
+	A-BANKRUPTCY: Bankruptcy Suppression (Y/N/T)................................. =
+	A-DECEASED: Deceased Suppression (Y/N/T)..................................... = 
+	A-DMA: Pander Suppression (Y/N/T)............................................ = 
+	A-NURSINGHOME: Nursing Home Suppression (Y/N/T).............................. =
+	A-PRISON: Prison Suppression (Y/N/T)......................................... = 
+
+
+	* DEMOGRAPHIC APPEND
+	* ---------------------------------------------------------------------------
+	A-DEMO-FULL: Full Demographic Enhancement (Y/N).............................. = 
+	* If you specify Y then all A-DEMO items below plus A-RES-PHONE are included
+
+	A-DEMO-AGE-EST: Age Append Estimated (Y/N)................................... = 
+	A-DEMO-AGE-EXACT: Age Append (Y/N)........................................... = 
+	A-DEMO-DOB: Date of Birth (Y/N).............................................. = 
+	A-DEMO-EDUCATION: Education Level (Y/N)...................................... = 
+	A-DEMO-OCCUPATION: Occupation (Y/N).......................................... = 
+	A-DEMO-HOMEOWNER: Homeowner (Y/N)............................................ = 
+	A-DEMO-HOMEVALUE: Home Value (Y/N)........................................... = 
+	A-DEMO-MEDHOMEVAL: Median Home Value (Y/N)................................... = 
+	A-DEMO-INCOME: Estimated Income (Y/N)........................................ = 
+	A-DEMO-MEDINCOME: Median Income (Y/N)........................................ = 
+	A-DEMO-NETWORTH: Net Worth (Y/N)............................................. = 
+	A-DEMO-MARITAL: Marital Status (Y/N)......................................... = 
+	A-DEMO-PRES-CHILD: Children (Y/N)............................................ = 
+	A-DEMO-NUMCHILD: Number of Children Present (Y/N)............................ = 
+	A-DEMO-MFDU: Multi-Family Dwelling Unit (Y/N)................................ = 
+	A-DEMO-UNITSIZE: Dwelling Unit Size (Y/N).................................... = 
+	A-DEMO-PROPTYPE: Property Type (Y/N)......................................... = 
+	A-DEMO-LOR: Length of Residence (Y/N)........................................ = 
+	A-DEMO-HOUSECOMP: Household Composition (Y/N)................................ = 
+	A-DEMO-PERHISPANIC: Percent Hispanic (Y/N)................................... = 
+	A-DEMO-MAILORDER: Mail order responder general (Y/N)......................... = 
+
+
+	* PHONE APPEND
+	* ---------------------------------------------------------------------------
+	A-RES-PHONE: Residential Phone Append (Y/N).................................. = 
+		Phone Match Confidence Level (1 thru 6).................................. = 
+		* Six levels of confidence are available
+		* The lower the number, the tighter the match
+		* Defaults to 4 when A-NCOA is processed, 6 when A-NCOA is not processed
+
+	A-RES-PHONE-TPS: Residential Phone Append TPS (Y/N).......................... = 
+	* If you specify A-RES-PHONE-TPS then phone numbers that match either 
+	* the Federal or State Do Not Call lists will be removed. 
+	* You will not receive phone numbers for these records.
+	* If you specify A-RES-PHONE-TPS then you must also specify A-RES-PHONE
+
+	A-RES-TPS: TPS on Existing Phones Only (Y/N)................................. = 
+	* Phone numbers that match either the Federal, State or Wireless 
+	* Do Not Call lists will be flagged.
+	* You may specify either A-RES-TPS or A-RES-PHONE, but not both.
+
+	A-PHONE-DISCONNECT (Y/N)..................................................... =
+
+	* GENDER AND NAME PARSING
+	* ---------------------------------------------------------------------------
+	A-GENDER: Gender Append (Y/N)................................................  = 
+	* Parses names present in an input file and assigns a gender to each row.
+
+	A-NAMEPARSE: Name Parsing (Y/N)..............................................  =  
+	* Splits names present in an input file into their constituent parts 
+	* (first, last, etc.).
+		Guess Missing Prefix (Y/N)...............................................  = 
+		* If Guess Missing Prefix is Y, any names that do not have a prefix 
+		* (Mr., Mrs., etc.) will have one assigned based on the assumed gender of
+		* the name. If Guess Missing Prefix is N, only rows that had a prefix in 
+		* the input data will have a prefix in the parsed data. The default is N.
+		* the input data will have a prefix in the parsed data. The default is N.
+
+
+(Those lines that begin with asterisks are comments to help guide you and are not processed by FAST.)
+
+But you don't have to use our template to specify the services you want.  You can instead specify only what you want and leave the rest out.  For example, this is equivalent to the complete template shown above::
+
+	A-CASS = Y
+	A-NCOA = Y
+	List ID = P12345
+
+All our FAST system really needs are the phrases it's looking for separated from your specifications by Equals symbols.
+
+What makes a phrase?
+++++++++++++++++++++
+
+FAST reads from the beginning of a line up to the first Colon, Open Parenthesis, or Equals symbol; trims any leading and trailing spaces; and looks for that string of characters in its list of phrases.  If there's a match, FAST uses the value on the right side of the Equals symbol as your specification.
+
+Custom FASTservices.txt Templates
++++++++++++++++++++++++++++++++++
+
+You can even make your own custom template for use inside your company, containing just the services you typically use, and with only those comments and phrase instructions you might need::
+
+	* FASTservices template for XYZ Company of America
+	
+	A-CASS=Y    
+	A-NCOA = 
+	A-DSF = 
+	List ID (the PAF ID for NCOAlink and/or DSF2 = P12345
+	Match Logic (S/I/B/IB/R) John: either B (business) or IB (individual + business) = 
+	Processing First Class Mail (Default) (Y/N).............................. = 
+	Processing Periodicals Mail (Y/N)........................................ = 
+	Processing Standard Mail (Y/N)........................................... = 
+	Processing Package Services Mail (Y/N)................................... = 
+
+Whichever way you produce this file, it must be named either FASTservices.txt or named in the format FASTservices.YourOwnTextGoesHere.txt to be recognized by the FAST system.
+If you frequently order two or more specific sets of services from Peachtree Data, you might consider making a FASTservices template for each set, for example:
+
+*	FASTservices.CASSonly.txt (contains just A-CASS=Y)
+*	FASTservices.NCOA-DSF-P12345.txt (contains A-NCOA=Y and List ID=P12345)
+*	FASTservices.NCOA-DSF-P23456.txt (contains A-NCOA=Y and List ID=P23456)
+
+That way you can simply copy the pre-made template you need into the .Zip file you send us.
+
+Services Notes
+++++++++++++++
+
+It's always a good idea to familiarize yourself with Peachtree Data's FASTservices.txt template because it can teach you a lot about which services and service processing options are available and which of those are required.  Here's some guidance to help you along.
+
+Specifications
+++++++++++++++
+
+Each line that isn't blank or doesn't begin with an asterisk is a "specification" that tells FAST how you want it to process some detail of your job.
+
+All specifications are case-insensitive, so you don't have to worry about uppercasing or lowercasing anything.  These two specifications are identical::
+
+	TruncLastName(9) = Sub(Trim(LastName), 1, 9)
+	trunclastname(9) = sub(trim(lastname), 1, 9)
+
+Also, each specification must appear on a single line, which means that this will work::
+
+	Record Filter = NOT(Left(Standard.County.Name, 1) = "L")
+
+but this will not work::
+
+	Record Filter = 
+	NOT(
+		Left(Standard.County.Name, 1) = "L")
+
+Yes, No, Test
++++++++++++++
+
+You'll notice that some services give you the option for Yes and No (Y/N) while others offer Yes, No, and Test (Y/N/T) as processing options.
+
+If you leave a specification empty, that is the same as specifying N.
+
+If you specify Y, this instructs FAST to include that service when processing your job.
+
+If you specify T, this instructs FAST to include that service when processing your job at no charge - but you will not receive the results of those tested services in the output file we return to you.  
+
+You will, however, receive two additional benefits:
+
+*	Your statistics reports will show what would have happened if you had actually purchased the tested services, and
+*	You will receive back an additional output file containing the additional columns (empty) that would have contained the results of those tested services.
+
+Defaults
+++++++++
+
+In our FASTservices.txt template, whenever you see a specification instruction that contains the word \"Default\" inside parentheses, FAST will automatically choose that value if FAST requires the specification and you didn't specify one.
+
+For example, if you specify A-CASS or A-CASS-CANADA but don't specify how it should handle Case::
+
+	* ADDRESS STANDARDIZATION
+	* ---------------------------------------------------------------------------
+	* Specify output casing, if left blank FAST will use Auto-case to
+	* match the output to the input casing 
+	Case (A/UL/U/L).............................................................. = 
+		* A  = Auto-casing (Default)
+		* UL = Upper and Lower
+		* U  = Upper
+		* L  = Lower
+
+
+	* US ADDRESS STANDARDIZATION SERVICES
+	* ---------------------------------------------------------------------------
+	* CASS will be automatically run if you specify Y for any other services
+	A-CASS: Coding Accuracy Support System Encoding (Y/N/T)...................... = Y
+
+then FAST will consider this the same as if you had explicitly specified A for Case::
+
+	* ADDRESS STANDARDIZATION
+	* ---------------------------------------------------------------------------
+	* Specify output casing, if left blank FAST will use Auto-case to
+	* match the output to the input casing 
+	Case (A/UL/U/L).............................................................. = A
+		* A  = Auto-casing (Default)
+		* UL = Upper and Lower
+		* U  = Upper
+		* L  = Lower
+
+
+	* US ADDRESS STANDARDIZATION SERVICES
+	* ---------------------------------------------------------------------------
+	* CASS will be automatically run if you specify Y for any other services
+	A-CASS: Coding Accuracy Support System Encoding (Y/N/T)...................... = Y
+
+	
+If A-CASS were not specified then Case would have been completely ignored.
+
+Automatic Corrections
++++++++++++++++++++++
+
+To make things as easy as possible for you, FAST automatically chooses for you some of the dependent services which you may have overlooked, but there are some which FAST cannot choose for you.
+
+For example, since A-CASS is required for all services except A-REVERSEPHONE and A-APT-APPEND, FAST will automatically set A-CASS to Y if you forgot to do so.
+This prevents jobs from being rejected for minor obvious flaws in specifications.  So if your job is rejected because a dependency wasn't specified then that dependency was one that FAST could not automatically correct for you.
+
+FASTservices.txt is Required
+++++++++++++++++++++++++++++
+
+FAST cannot process your job unless it contains a FASTservices.txt document, or one that fits the file naming convention mentioned earlier.
+
+Where to Find the Template
+++++++++++++++++++++++++++
+Your copy of Peachtree Data's FASTservices.txt template is in the FAST Starter Kit.zip that contained this document you're now reading.
+	
+

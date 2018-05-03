@@ -1,0 +1,24 @@
+OUTPUT OPTIONS
+Output Data File Type = delimited
+Output Delimiter = comma
+Output Each Record = Once
+
+UNFILTERED RECORDS FILE
+Unfiltered Record Handling = ignore
+
+OUTPUT FILE
+Output File Name = undeliverable.csv
+Record Filter = (standard.dpv.vacant="Y" and empty(coa.address.primary)) or coa.dpv.vacant="Y" or ((movereplace.dpv.status="N" or movereplace.dpv.status=" ") and empty(coa.address.primary)) or (standard.zip.fivedigitmatch = 'F' or '01,02,03,05,14,19' contains coa.returncode) or (standard.ews.match = 'F' and empty(coa.zip4) and (empty(standard.zip4) or standard.dpv.footnote.r1="Y"))
+original.#AllInputFields#
+
+OUTPUT FILE
+Output File Name = deliverable.csv
+Title(40) = original.title
+First Name(40) = original.First Name
+Last Name(40) = original.Last Name
+Address(40) = movereplace.address
+City(40) = movereplace.city
+State(40) = movereplace.state
+Zip(40) = movereplace.zip
+Court(40) = original.Court
+Division(26) = original.Division

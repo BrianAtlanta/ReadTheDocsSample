@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FASTOutput.txt &mdash; FAST Starter Kit alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FAST Expression Language (FXL)" href="FAST Expression Language.html" />
+    <link rel="prev" title="FASTinput.txt" href="FASTInputFile.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> FAST Starter Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="HowToPrepare.html">How to Prepare and Submit a FAST Job</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FASTServicesFile.html">FASTServices.txt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FASTInputFile.html">FASTinput.txt</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FASTOutput.txt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-does-original-fieldname-mean">What Does Original.FieldName Mean?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-fastoutput-txt-templates">Custom FASToutput.txt Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-notes">Output Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#section-headings">Section Headings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#section-order">Section Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-delimiter">Input Delimiter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#first-row-contains-column-names">First Row Contains Column Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#name-format">Name Format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FAST Expression Language.html">FAST Expression Language (FXL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fields.html">Field Descriptions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FAST Starter Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>FASTOutput.txt</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/FASTOutputFile.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fastoutput-txt">
+<h1>FASTOutput.txt<a class="headerlink" href="#fastoutput-txt" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference download internal" href="_downloads/FASToutput.txt" download=""><code class="xref download docutils literal notranslate"><span class="pre">FASTOutput.txt</span></code></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you just want us to put all your processed records into a single output file that is the same file type (e.g., .dbf, .csv) as your original data input file and that has the default data columns for the services we processed plus a copy of all your original data, and then don’t include a FASToutput.txt in the Zip file you send us.</p>
+</div>
+<p>FASToutput.txt isn’t very complicated, but there’s more to it than either FASTservices.txt or FASTinput.txt, so let’s discuss it a bit.
+One piece of good news is that FASToutput.txt is entirely optional, so you may not even need to create one.</p>
+<p>In this case, this single output file will be named using the characters before the first period in your job’s Zip file name.</p>
+<p>But if you want a different data file format (Fixed, Delimited, or Dbase) than your original data input file, or you want multiple output files containing specific records based on filtering criteria, or different sets of columns for each file, or anything outside the default described above in bold, then you’ll need to include a FASToutput.txt file in the Zip file you send us.</p>
+<p>Peachtree Data can provide you with a standard FASToutput.txt template that contains all possible output specifications plus comments to guide you. Here is an example that specifies a single output file in Dbase format named cust.dbf that contains all records, and the output columns in this file will be id, fullname, address1, address2, city, state, zip, and prospctgrp:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="o">------------------------------</span> <span class="n">FASToutput</span> <span class="o">-------------------------------</span>
+<span class="n">OUTPUT</span> <span class="n">OPTIONS</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">These</span> <span class="n">apply</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">output</span> <span class="n">files</span> <span class="n">you</span> <span class="n">specify</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">OUTPUT</span> <span class="n">FILE</span> <span class="n">section</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span>
+
+<span class="n">Output</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span><span class="p">:</span> <span class="p">(</span><span class="n">Fixed</span><span class="p">,</span> <span class="n">DBase</span><span class="p">,</span> <span class="n">Delimited</span><span class="p">)</span><span class="o">.............................</span> <span class="o">=</span> <span class="n">Dbase</span>
+<span class="o">*</span> <span class="n">Fixed</span> <span class="o">=</span> <span class="n">Fixed</span><span class="o">-</span><span class="n">width</span> <span class="n">ASCII</span> <span class="p">(</span><span class="o">.</span><span class="n">txt</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">Dbase</span> <span class="o">=</span> <span class="n">DBase3</span> <span class="p">(</span><span class="o">.</span><span class="n">dbf</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">Delimited</span> <span class="o">=</span> <span class="n">ASCII</span> <span class="n">file</span> <span class="n">delimited</span> <span class="n">by</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">character</span>
+<span class="o">*</span> <span class="n">Defaults</span> <span class="n">to</span> <span class="n">Input</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">specified</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">This</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">output</span> <span class="n">files</span><span class="o">.</span>
+
+<span class="n">Output</span> <span class="n">Delimiter</span><span class="p">:</span> <span class="p">(</span><span class="n">Comma</span><span class="p">,</span> <span class="n">Tab</span><span class="p">,</span> <span class="n">Pipe</span><span class="p">)</span><span class="o">.........................................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">If</span> <span class="n">Delimited</span> <span class="ow">is</span> <span class="n">specified</span> <span class="n">directly</span> <span class="n">above</span>
+<span class="o">*</span> <span class="n">Comma</span> <span class="o">=</span> <span class="n">Commas</span> <span class="n">mark</span> <span class="n">the</span> <span class="n">boundaries</span> <span class="n">of</span> <span class="n">each</span> <span class="n">column</span> <span class="p">(</span><span class="o">.</span><span class="n">csv</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">Tab</span> <span class="o">=</span> <span class="n">Tab</span> <span class="n">characters</span> <span class="n">mark</span> <span class="n">the</span> <span class="n">boundaries</span> <span class="n">of</span> <span class="n">each</span> <span class="n">column</span> <span class="p">(</span><span class="o">.</span><span class="n">txt</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">Pipe</span> <span class="o">=</span> <span class="n">Pipe</span> <span class="n">characters</span> <span class="n">mark</span> <span class="n">the</span> <span class="n">boundaries</span> <span class="n">of</span> <span class="n">each</span> <span class="n">column</span> <span class="p">(</span><span class="o">.</span><span class="n">txt</span><span class="p">)</span>
+<span class="o">*</span> <span class="n">Defaults</span> <span class="n">to</span> <span class="n">Input</span> <span class="n">Delimiter</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">specified</span><span class="o">.</span>
+
+<span class="n">Output</span> <span class="n">Each</span> <span class="n">Record</span><span class="p">:</span> <span class="p">(</span><span class="n">Once</span><span class="o">/</span><span class="n">All</span><span class="p">)</span><span class="o">...............................................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">Once</span> <span class="o">=</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span> <span class="n">Evaluate</span> <span class="n">records</span> <span class="n">against</span> <span class="n">each</span> <span class="n">Record</span> <span class="n">Filter</span> <span class="ow">in</span> <span class="n">the</span>
+<span class="o">*</span> <span class="n">order</span> <span class="n">listed</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">OUTPUT</span> <span class="n">FILES</span> <span class="n">section</span><span class="p">,</span> <span class="n">but</span> <span class="n">output</span> <span class="n">to</span> <span class="n">only</span>
+<span class="o">*</span> <span class="n">the</span> <span class="n">first</span> <span class="n">output</span> <span class="n">file</span> <span class="n">whose</span> <span class="n">Record</span> <span class="n">Filter</span> <span class="n">evaluates</span> <span class="n">to</span> <span class="kc">True</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">All</span> <span class="o">=</span> <span class="n">Evaluate</span> <span class="n">records</span> <span class="n">against</span> <span class="n">each</span> <span class="n">Record</span> <span class="n">Filter</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">order</span>
+<span class="o">*</span> <span class="n">listed</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">OUTPUT</span> <span class="n">FILES</span> <span class="n">section</span><span class="p">,</span> <span class="ow">and</span> <span class="n">output</span> <span class="n">to</span> <span class="nb">all</span>
+<span class="o">*</span> <span class="n">Output</span> <span class="n">Files</span> <span class="n">whose</span> <span class="n">Record</span> <span class="n">Filters</span> <span class="n">evaluate</span> <span class="n">to</span> <span class="kc">True</span><span class="o">.</span>
+
+<span class="n">Output</span> <span class="n">Text</span> <span class="n">Qualifier</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="o">/</span><span class="n">Quote</span><span class="p">)</span><span class="o">..........................................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="kc">None</span> <span class="o">=</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span> <span class="n">Do</span> <span class="ow">not</span> <span class="n">surround</span> <span class="n">output</span> <span class="n">values</span> <span class="k">with</span> <span class="n">double</span><span class="o">-</span><span class="n">quotes</span>
+<span class="o">*</span> <span class="n">unless</span> <span class="n">the</span> <span class="n">value</span> <span class="n">contains</span> <span class="n">a</span> <span class="n">delimiter</span> <span class="n">character</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">Quote</span> <span class="o">=</span> <span class="n">Surround</span> <span class="nb">all</span> <span class="n">output</span> <span class="n">values</span> <span class="k">with</span> <span class="n">double</span><span class="o">-</span><span class="n">quotes</span> <span class="n">regardless</span> <span class="n">of</span>
+<span class="o">*</span> <span class="n">whether</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">they</span> <span class="n">contain</span> <span class="n">a</span> <span class="n">delimiter</span> <span class="n">character</span><span class="o">.</span>
+
+<span class="n">UNFILTERED</span> <span class="n">RECORDS</span> <span class="n">FILE</span>
+
+<span class="n">Unfiltered</span> <span class="n">Record</span> <span class="n">Handling</span><span class="p">:</span> <span class="p">(</span><span class="n">Default</span><span class="o">/</span><span class="n">Ignore</span><span class="p">)</span><span class="o">.................................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">Default</span> <span class="o">=</span> <span class="p">(</span><span class="n">Default</span><span class="p">)</span> <span class="n">If</span> <span class="n">a</span> <span class="n">record</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">match</span> <span class="nb">any</span> <span class="n">of</span> <span class="n">the</span>
+<span class="o">*</span> <span class="n">Record</span> <span class="n">Filters</span> <span class="n">below</span><span class="p">,</span> <span class="n">then</span> <span class="n">output</span> <span class="n">it</span> <span class="n">to</span> <span class="n">the</span>
+<span class="o">*</span> <span class="n">Unfiltered</span> <span class="n">Records</span> <span class="n">File</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">Ignore</span> <span class="o">=</span> <span class="n">If</span> <span class="n">a</span> <span class="n">record</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">match</span> <span class="nb">any</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Record</span> <span class="n">Filters</span>
+<span class="o">*</span> <span class="n">below</span><span class="p">,</span> <span class="n">then</span> <span class="n">ignore</span> <span class="n">it</span><span class="o">.</span>
+
+<span class="n">Unfiltered</span> <span class="n">Records</span> <span class="n">File</span> <span class="n">Name</span><span class="p">:</span><span class="o">................................................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">You</span> <span class="n">may</span> <span class="n">use</span> <span class="nb">any</span> <span class="n">file</span> <span class="n">name</span> <span class="n">extension</span> <span class="n">up</span> <span class="n">to</span> <span class="mi">10</span> <span class="n">characters</span> <span class="n">long</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">If</span> <span class="n">you</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">specify</span> <span class="n">a</span> <span class="n">file</span> <span class="n">name</span> <span class="n">extension</span> <span class="n">then</span> <span class="n">one</span> <span class="n">will</span> <span class="n">be</span> <span class="n">created</span> <span class="n">based</span>
+<span class="o">*</span> <span class="n">on</span> <span class="n">the</span> <span class="n">Output</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span> <span class="ow">and</span> <span class="n">Output</span> <span class="n">Delimiter</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">Fixed</span> <span class="o">=</span> <span class="o">.</span><span class="n">txt</span>
+<span class="o">*</span> <span class="n">Dbase</span> <span class="o">=</span> <span class="o">.</span><span class="n">dbf</span>
+<span class="o">*</span> <span class="n">Delimited</span><span class="p">,</span> <span class="n">comma</span> <span class="o">=</span> <span class="o">.</span><span class="n">csv</span>
+<span class="o">*</span> <span class="n">Delimited</span><span class="p">,</span> <span class="n">pipe</span> <span class="o">=</span> <span class="o">.</span><span class="n">txt</span>
+<span class="o">*</span> <span class="n">Delimited</span><span class="p">,</span> <span class="n">tab</span> <span class="o">=</span> <span class="o">.</span><span class="n">txt</span>
+<span class="o">*</span>
+<span class="o">*</span> <span class="n">Records</span> <span class="n">that</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">match</span> <span class="nb">any</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Record</span> <span class="n">Filters</span> <span class="n">below</span>
+<span class="o">*</span> <span class="n">will</span> <span class="n">be</span> <span class="n">put</span> <span class="n">into</span> <span class="n">this</span> <span class="n">file</span><span class="o">.</span>
+
+<span class="o">*</span> <span class="n">Defaults</span> <span class="n">to</span> <span class="n">a</span> <span class="n">file</span> <span class="n">named</span> <span class="n">UnfilteredRecords</span> <span class="k">with</span> <span class="n">the</span> <span class="n">same</span>
+<span class="o">*</span> <span class="n">file</span> <span class="n">name</span> <span class="n">extension</span> <span class="n">used</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Output</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span><span class="o">.</span>
+
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">Define</span> <span class="n">the</span> <span class="n">columns</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">Unfiltered</span> <span class="n">Records</span> <span class="n">File</span> <span class="n">below</span> <span class="n">this</span> <span class="n">line</span><span class="o">.</span>
+<span class="o">*</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="n">FAST</span><span class="o">.</span><span class="c1">#DefaultOutputFields# followed by original.#AllInputFields#)</span>
+
+<span class="o">*</span> <span class="n">Examples</span><span class="p">:</span>
+
+<span class="o">*</span> <span class="n">CompanyName</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">firm</span>
+<span class="o">*</span> <span class="n">FactorCode</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">iif</span><span class="p">(</span><span class="n">sub</span><span class="p">(</span><span class="n">trim</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="n">firm</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;Fed&quot;</span><span class="p">,</span> <span class="s2">&quot;FE&quot;</span><span class="p">,</span> <span class="s2">&quot;CL&quot;</span><span class="p">)</span>
+
+<span class="o">*</span> <span class="p">(</span><span class="n">refer</span> <span class="n">to</span> <span class="s2">&quot;How to Prepare and Submit a FAST Job&quot;</span> <span class="k">for</span> <span class="n">full</span> <span class="n">details</span><span class="p">)</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+
+<span class="n">OUTPUT</span> <span class="n">FILE</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">processed</span> <span class="n">file</span> <span class="n">that</span> <span class="n">Peachtree</span> <span class="n">Data</span> <span class="n">sends</span> <span class="n">back</span> <span class="n">to</span> <span class="n">you</span><span class="o">.</span>
+<span class="o">*</span>
+<span class="o">*</span> <span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">us</span> <span class="n">to</span> <span class="k">return</span> <span class="n">multiple</span> <span class="n">output</span> <span class="n">files</span> <span class="n">to</span> <span class="n">you</span><span class="p">,</span> <span class="n">just</span> <span class="n">copy</span> <span class="ow">and</span> <span class="n">paste</span>
+<span class="o">*</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">OUTPUT</span> <span class="n">FILE</span> <span class="n">section</span> <span class="n">multiple</span> <span class="n">times</span> <span class="ow">and</span> <span class="n">modify</span> <span class="n">the</span> <span class="n">specifications</span>
+<span class="o">*</span> <span class="k">as</span> <span class="n">needed</span><span class="o">.</span>
+
+<span class="n">Output</span> <span class="n">File</span> <span class="n">Name</span><span class="p">:</span><span class="o">............................................................</span> <span class="o">=</span> <span class="n">cust</span>
+<span class="o">*</span> <span class="n">You</span> <span class="n">may</span> <span class="n">use</span> <span class="nb">any</span> <span class="n">file</span> <span class="n">name</span> <span class="n">extension</span> <span class="n">up</span> <span class="n">to</span> <span class="mi">10</span> <span class="n">characters</span> <span class="n">long</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">If</span> <span class="n">you</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">specify</span> <span class="n">a</span> <span class="n">file</span> <span class="n">name</span> <span class="n">extension</span> <span class="n">then</span> <span class="n">one</span> <span class="n">will</span> <span class="n">be</span> <span class="n">created</span> <span class="n">based</span>
+<span class="o">*</span> <span class="n">on</span> <span class="n">the</span> <span class="n">Output</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span> <span class="ow">and</span> <span class="n">Output</span> <span class="n">Delimiter</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">Fixed</span> <span class="o">=</span> <span class="o">.</span><span class="n">txt</span>
+<span class="o">*</span> <span class="n">Dbase</span> <span class="o">=</span> <span class="o">.</span><span class="n">dbf</span>
+<span class="o">*</span> <span class="n">Delimited</span><span class="p">,</span> <span class="n">comma</span> <span class="o">=</span> <span class="o">.</span><span class="n">csv</span>
+<span class="o">*</span> <span class="n">Delimited</span><span class="p">,</span> <span class="n">pipe</span> <span class="o">=</span> <span class="o">.</span><span class="n">txt</span>
+<span class="o">*</span> <span class="n">Delimited</span><span class="p">,</span> <span class="n">tab</span> <span class="o">=</span> <span class="o">.</span><span class="n">txt</span>
+
+<span class="n">Record</span> <span class="n">Filter</span><span class="p">:</span><span class="o">...............................................................</span> <span class="o">=</span>
+<span class="o">*</span> <span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">only</span> <span class="n">certain</span> <span class="n">records</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">output</span> <span class="n">file</span><span class="p">,</span> <span class="n">specify</span> <span class="n">the</span>
+<span class="o">*</span> <span class="n">expression</span> <span class="n">here</span><span class="o">.</span>
+
+<span class="o">*</span> <span class="n">Examples</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">original</span><span class="o">.</span><span class="n">CreditScore</span> <span class="o">&gt;=</span> <span class="mi">700</span> <span class="o">--&gt;</span> <span class="n">CreditScore</span> <span class="n">greater</span> <span class="n">than</span> <span class="ow">or</span> <span class="n">equal</span> <span class="n">to</span> <span class="mi">700</span>
+<span class="o">*</span> <span class="n">Left</span><span class="p">(</span><span class="n">standard</span><span class="o">.</span><span class="n">Zip</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;303&quot;</span> <span class="o">--&gt;</span> <span class="n">Zip</span> <span class="n">begins</span> <span class="k">with</span> <span class="mi">303</span>
+
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+<span class="o">*</span> <span class="n">Define</span> <span class="n">the</span> <span class="n">columns</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">Output</span> <span class="n">File</span> <span class="n">below</span> <span class="n">this</span> <span class="n">line</span><span class="o">.</span>
+<span class="o">*</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="n">FAST</span><span class="o">.</span><span class="c1">#DefaultOutputFields# followed by original.#AllInputFields#)</span>
+
+<span class="nb">id</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="n">pix</span><span class="o">.</span><span class="n">rowid</span>
+<span class="n">fullname</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">fullname</span>
+<span class="n">address1</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">primary</span>
+<span class="n">address2</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">secondary</span>
+<span class="n">city</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">city</span>
+<span class="n">state</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">state</span>
+<span class="nb">zip</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">zip10</span>
+<span class="n">prospctgrp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">iif</span><span class="p">(</span><span class="n">sub</span><span class="p">(</span><span class="n">coa</span><span class="o">.</span><span class="n">zip</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;303&quot;</span><span class="p">,</span> <span class="s2">&quot;ATL&quot;</span><span class="p">,</span> <span class="s2">&quot;OTH&quot;</span><span class="p">)</span>
+
+<span class="o">*</span> <span class="n">Examples</span><span class="p">:</span>
+
+<span class="o">*</span> <span class="n">CompanyName</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">firm</span>
+<span class="o">*</span> <span class="n">FactorCode</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">iif</span><span class="p">(</span><span class="n">sub</span><span class="p">(</span><span class="n">trim</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="n">firm</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;Fed&quot;</span><span class="p">,</span> <span class="s2">&quot;FE&quot;</span><span class="p">,</span> <span class="s2">&quot;CL&quot;</span><span class="p">)</span>
+<span class="o">*</span> <span class="p">(</span><span class="n">refer</span> <span class="n">to</span> <span class="s2">&quot;How to Prepare and Submit a FAST Job&quot;</span> <span class="k">for</span> <span class="n">full</span> <span class="n">details</span><span class="p">)</span>
+<span class="o">*</span> <span class="o">---------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+<p>Just like FASTservices.txt and FASTinput.txt, FASToutput.txt doesn’t have to use Peachtree Data’s template. You can instead specify only what you want and leave the rest out. For example, this is equivalent to the complete template shown above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">Dbase</span>
+<span class="n">OUTPUT</span> <span class="n">FILE</span>
+<span class="n">Output</span> <span class="n">File</span> <span class="n">Name</span> <span class="o">=</span> <span class="n">cust</span>
+<span class="nb">id</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="n">pix</span><span class="o">.</span><span class="n">rowid</span>
+<span class="n">fullname</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">fullname</span>
+<span class="n">address1</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">primary</span>
+<span class="n">address2</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">secondary</span>
+<span class="n">city</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">city</span>
+<span class="n">state</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">state</span>
+<span class="nb">zip</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">zip10</span>
+<span class="n">prospctgrp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">iif</span><span class="p">(</span><span class="n">sub</span><span class="p">(</span><span class="n">coa</span><span class="o">.</span><span class="n">zip</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;303&quot;</span><span class="p">,</span> <span class="s2">&quot;ATL&quot;</span><span class="p">,</span> <span class="s2">&quot;OTH&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="what-does-original-fieldname-mean">
+<h2>What Does Original.FieldName Mean?<a class="headerlink" href="#what-does-original-fieldname-mean" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Original.</span></code> is the prefix that identifies the location of the field name in Original.FieldName as being your original data input file.
+So if your data input file contains a four-character field named MarketingCode and you want to copy that field as the third field in the processed output file, your output column mapping will look something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="n">pix</span><span class="o">.</span><span class="n">rowid</span>
+<span class="n">fullname</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">fullname</span>
+<span class="n">marketingcode</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">marketingcode</span>
+<span class="n">address1</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">primary</span>
+<span class="n">address2</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="o">=</span> <span class="n">standard</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">secondary</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-fastoutput-txt-templates">
+<h2>Custom FASToutput.txt Templates<a class="headerlink" href="#custom-fastoutput-txt-templates" title="Permalink to this headline">¶</a></h2>
+<p>Just like with FASTservices.txt and FASTinput.txt, you can create one or more of your own custom FASToutput.txt templates for use inside your company.</p>
+<p>If you require more than a single output file or have complicated output column mapping expressions you use on multiple projects then it’s a good idea to create a custom template with those specifications and just copy (and edit, if necessary) the template for each new job.</p>
+<p>This is especially useful for seasonal marketing campaigns that produce the same output files based on the same record filters.</p>
+<p>Whichever way you produce this file, it must be named either FASToutput.txt or named in the format FASToutput.YourOwnTextGoesHere.txt.</p>
+</div>
+<div class="section" id="output-notes">
+<h2>Output Notes<a class="headerlink" href="#output-notes" title="Permalink to this headline">¶</a></h2>
+<p>It’s always a good idea to familiarize yourself with Peachtree Data’s FASToutput.txt template because it can teach you a lot about which data output processing options are available and which of those are required. Here’s some guidance to help you along.</p>
+</div>
+<div class="section" id="section-headings">
+<h2>Section Headings<a class="headerlink" href="#section-headings" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Output Options</td>
+<td><p class="first"><strong>The Output Options section is optional.</strong></p>
+<p>An Output Options section may appear anywhere within <code class="docutils literal notranslate"><span class="pre">FASToutput.txt</span></code>.
+Your FASToutput.txt may contain only one Output Options section.</p>
+<p class="last">If you do not include an Output Options section in your <code class="docutils literal notranslate"><span class="pre">FASToutput.txt</span></code>
+then FAST will use all default values for each specification in the
+Output Options section.</p>
+</td>
+</tr>
+<tr class="row-even"><td>Unfiltered Records File</td>
+<td><p class="first"><strong>The Unfiltered Records File section is optional.</strong></p>
+<p>Your <code class="docutils literal notranslate"><span class="pre">FASToutput.txt</span></code> may contain only one Unfiltered Records File section.</p>
+<p class="last">If you do not include an Unfiltered Records File section in your
+<code class="docutils literal notranslate"><span class="pre">FASToutput.txt</span></code> then FAST will use all default values for each
+specification in the Unfiltered Records File section.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>Output File</td>
+<td><p class="first"><strong>The Unfiltered Records File section is optional.</strong></p>
+<p>Each Output File section specifies a separate output file.</p>
+<p>You may include up to 25 Output File sections.</p>
+<p class="last">If you do not include an Output File section in your <code class="docutils literal notranslate"><span class="pre">FASToutput.txt</span></code> then
+FAST will create a single Output File section that uses default values
+for each specification.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="section-order">
+<h2>Section Order<a class="headerlink" href="#section-order" title="Permalink to this headline">¶</a></h2>
+<p>FASTinput.txt sections may appear in any order you prefer.</p>
+</div>
+<div class="section" id="input-delimiter">
+<h2>Input Delimiter<a class="headerlink" href="#input-delimiter" title="Permalink to this headline">¶</a></h2>
+<p>Applies only when the input data file type is Delimited.</p>
+</div>
+<div class="section" id="first-row-contains-column-names">
+<h2>First Row Contains Column Names<a class="headerlink" href="#first-row-contains-column-names" title="Permalink to this headline">¶</a></h2>
+<p>Applies only when the input data file type is Delimited.</p>
+<p>When First Row Contains Column Names is set to Y, FAST ignores the entire Input Column Specifications if you included one.  In this case, FAST discovers column names and sizes by inspecting the input data file itself.</p>
+</div>
+<div class="section" id="name-format">
+<h2>Name Format<a class="headerlink" href="#name-format" title="Permalink to this headline">¶</a></h2>
+<p>The three full name format options shown in our FASTinput.txt template are the only three recognized by FAST.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="35%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>FML</td>
+<td>First Middle Last</td>
+<td>“John Fitzgerald Doe” or “John Doe” (Default)</td>
+</tr>
+<tr class="row-odd"><td>LCFM</td>
+<td>Last, First Middle</td>
+<td>“Doe, John Fitzgerald” or “Doe, John”</td>
+</tr>
+<tr class="row-even"><td>LFM</td>
+<td>Last First Middle</td>
+<td>“Doe John Fitzgerald” or “Doe John”</td>
+</tr>
+</tbody>
+</table>
+<p>FASTinput.txt is Required
+FAST cannot process your job unless it contains a FASTinput.txt document, or one that fits the file naming convention mentioned earlier.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FAST Expression Language.html" class="btn btn-neutral float-right" title="FAST Expression Language (FXL)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FASTInputFile.html" class="btn btn-neutral" title="FASTinput.txt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Peachtree Data.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'alpha',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/javascript/field-descriptions.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

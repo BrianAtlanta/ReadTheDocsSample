@@ -1,0 +1,329 @@
+FASTinput.txt
+=============
+
+:download:`FASTInput.txt</files/FASTInput.txt>`
+
+
+Naming Convention
++++++++++++++++++
+
+FAST input files can be named using the standard name of ``FASTinput.txt``, or it can be named using a custom format of ``FASTinput.YourOwnTextGoesHere.txt``. 
+The custom format is useful when there are jobs with different data formats.  Each FASTInput file would be named according to the format, for example: ``FASTInput.delimited.txt`` and ``FASTInput.dbase.txt``
+The custom name format   
+
+
+Standard FASTinput.txt Template
++++++++++++++++++++++++++++++++
+
+.. note:: FAST cannot process your job unless it contains a FAST input file, the name fits the standard or custom naming convention.
+
+Peachtree Data provides you with a standard ``FASTinput.txt`` template that contains all possible input specifications plus comments to guide you.  Here is an example that specifies a fixed-width input file containing the columns fname, lname, addr1, addr2, city, state, zip5, filler, and id::
+
+	* ------------------------------  FASTinput  --------------------------------
+	
+	
+	INPUT FILE TYPE
+	* ---------------------------------------------------------------------------
+	* This is the source file you send to Peachtree Data for processing.
+	
+	Input Data File Type: (Fixed, DBase, Delimited).............................. = Fixed
+	    * Fixed     = Fixed-width ASCII
+	    * Dbase     = Dbase3
+	    * Delimited = ASCII file delimited by a specific character
+	
+	Input Delimiter: (Comma, Tab, Pipe).......................................... = 
+	* If Delimited is specified above.
+	    * Comma = Commas mark the boundaries of each column
+	    * Tab   = Tab characters mark the boundaries of each column
+	    * Pipe  = Pipe characters mark the boundaries of each column
+	
+	First Row Contains Column Names: (Y/N)....................................... = 
+	* If Delimited is specified above.
+	
+	
+	INPUT COLUMN DEFINITIONS
+	* ---------------------------------------------------------------------------
+	* This is the list of column names and lengths in your datafile, listed in
+	* left-to-right order.  Please list all columns in the data file.
+	*
+	* Each column name must be unique.
+	*
+	* If Input Data File Type is Dbase, or if it is Delimited with 
+	* First Row Contains Column Names = Y, then this section will be ignored.
+	
+	* Example input column definition:
+	
+	* fname(15)
+	
+	* where “fname” is your input column name, and 15 is the maximum length of 
+	* this field.  All columns are treated as text datatypes.
+	
+	fname(15)
+	lname(20)
+	addr1(30)
+	addr2(30)
+	city(15)
+	state(2)
+	zip5(5)
+	filler(8)
+	id(20)
+	
+	
+	INPUT COLUMN MAPPINGS
+	* ---------------------------------------------------------------------------
+	* In the format: Peachtree Data's Column Name = Your Column Name
+	* Example: City = cityname
+	*
+	* If you don't have a column to map to one of Peachtree Data's columns then 
+	* just leave that entry blank
+	*
+	* To combine multiple columns and plain text into a single column, use
+	* an Ampersand (&) to connect items with a single space between them, 
+	* or a Plus Symbol (+) to connect items with nothing between them.
+	* Examples: 
+	* FullName = fname & lname                        --> John Doe
+	* FullName = fname & mname & lname + "," & suffix --> John Fitzgerald Doe, Jr
+	*
+	* If FullName or Firm is used then NameOrFirm should be blank
+	* If City, State and ZIPCode are used then LastLine should be blank
+	
+	Name Format Used By FullName and/or NameOrFirm: (FML, LCFM, LFM)............. = 
+	    * FML  = Example: "John Fitzgerald Doe" or "John Doe" (Default)
+	    * LCFM = Example: "Doe, John Fitzgerald" or "Doe, John"
+	    * LFM  = Example: "Doe John Fitzgerald" or "Doe John"
+	
+	* Use only one of these mapping blocks and leave the other one empty
+	
+	* Explicitly-named fields mapping block:
+	FullName   = fname & lname
+	Firm       = 
+	NameOrFirm = 
+	Address1   = addr1
+	Address2   = addr2
+	City       = city
+	State      = state
+	ZIPCode    = zip5
+	LastLine   = 
+	Phone      = 
+	
+	* Auto-mapping block:
+	Line1      = 
+	Line2      = 
+	Line3      = 
+	Line4      = 
+	Line5      = 
+	Line6      = 
+	Line7      = 
+	Line8      = 
+	Line9      = 
+	Line10     = 
+	Line11     = 
+	Line12     = 
+
+Just like ``FASTservices.txt``, ``FASTinput.txt`` doesn't have to use Peachtree Data's template.  You can instead specify only what you want and leave the rest out.  For example, this is equivalent to the complete template shown above::
+
+	Input Data File Type = Fixed
+	
+	INPUT COLUMN DEFINITIONS
+	fname(15)
+	lname(20)
+	addr1(30)
+	addr2(30)
+	city(15)
+	state(2)
+	zip5(5)
+	filler(8)
+	id(20)
+	
+	INPUT COLUMN MAPPINGS
+	FullName   = fname & lname
+	Address1   = addr1
+	Address2   = addr2
+	City       = city
+	State      = state
+	ZIPCode    = zip5
+
+Custom FASTinput.txt Templates
+++++++++++++++++++++++++++++++
+
+Just like with ``FASTservices.txt``, you can create one or more of your own custom ``FASTinput.txt`` templates for use inside your company.  It will be recognized by the FAST system as long as it is named either ``FASTinput.txt`` or named in the format ``FASTinput.YourOwnTextGoesHere.txt``.
+
+Let's say you typically have two types of input data files you process with us: Dbase files containing a specific set of columns that never change, and comma-delimited files that contain five standard columns plus any number of additional columns.  An efficient strategy might be to create two custom templates…
+
+**FASTinput.dbase.txt**::
+
+	Input Data File Type = Dbase
+
+	INPUT COLUMN MAPPINGS
+	FullName   = fn
+	Address1   = a1
+	Address2   = a2
+	City       = ct
+	State      = st
+	ZIPCode    = zc
+
+
+**FASTinput.comma.txt**::
+
+	Input Data File Type = Delimited
+	Input Delimiter = Comma
+	First Row Contains Column Names = N
+	
+	* Since the delimited file does not have a header record, the INPUT COLUMN DEFINTIONS is required.
+	INPUT COLUMN DEFINITIONS
+	CompleteName(30)
+	Address(40)
+	City(15)
+	State(2)
+	PostalCode(10)
+		
+	INPUT COLUMN MAPPINGS
+	FullName   = CompleteName
+	Address1   = Address
+	Address2   = 
+	City       = City
+	State      = State
+	ZIPCode    = PostalCode
+	Phone      = 
+
+…and then for jobs using Dbase input files, drag a copy of ``FASTinput.dbase.txt`` into your job's .Zip file.  For jobs using comma-delimited input files, modify a copy of ``FASTinput.comma.txt`` to include the additional columns and then drag it into your job's .Zip file.
+
+How to Handle "Floating Lines"
+++++++++++++++++++++++++++++++
+
+So far the examples we've shown for ``FASTinput.txt`` have used input data files containing explicitly-defined columns for each discrete value, like this::
+
+	Record 1:
+	FullName  = Richard West
+	Firm      = Peachtree Data
+	Address1  = 2905 Premiere Pkwy 
+	Address2  = Suite 200
+	City      = Duluth 
+	State     = GA
+	ZipCode   = 30097
+	
+	Record 2:
+	FullName  = Bobby Lemanczek
+	Firm      = 
+	Address1  = 1221 Peachtree St
+	Address2  = Apt 1505
+	City      = Atlanta 
+	State     = GA 
+	ZipCode   = 30303
+
+But sometimes your input data file may contain complete address block lines that are not explicitly positioned, like this::
+
+	Record 1:
+	Field1 = Richard West
+	Field2 = Peachtree Data
+	Field3 = 2905 Premiere Pkwy 
+	Field4 = Suite 200
+	Field5 = Duluth GA 30097
+	
+	Record 2:
+	Field1 = Bobby Lemanczek
+	Field2 = 1221 Peachtree St Apt 1505
+	Field3 = Atlanta GA 30303
+	Field4 = 
+	Field5 = 
+
+Such data is said to "float"; the term we use at Peachtree Data is multi-line input.
+
+``FASTinput.txt`` handles multi-line input through its Auto-Mapping Block.
+
+Given the example data shown above, this could be one way to specify it in a ``FASTinput.txt``::
+
+	Input Data File Type = Fixed
+	
+	INPUT COLUMN DEFINITIONS
+	Field1(40)
+	Field2(40)
+	Field3(40)
+	Field4(40)
+	Field5(40)
+	id(20)
+	
+	INPUT COLUMN MAPPINGS
+	Line1      = Field1
+	Line2      = Field2
+	Line3      = Field3
+	Line4      = Field4
+	Line5      = Field5
+	Line6      = 
+	Line7      = 
+	Line8      = 
+	Line9      = 
+	Line10     = 
+	Line11     = 
+	Line12     =
+
+Line1 through Line12 is available for mapping to your floating line columns.  In the example above, we could have omitted Line6 through Line12, but we included them to illustrate that they are available to you.
+
+You can use either the Explicitly-Named Fields Mapping Block or the Auto-Mapping Block, but not both.
+
+
+
+.. note:: Floating Lines are not supported for APT-APPEND at the present time.
+
+
+Important Notes
++++++++++++++++
+
+It's always a good idea to familiarize yourself with Peachtree Data's FASTinput.txt template because it can teach you a lot about which data input processing options are available and which of those are required.  Here's some guidance to help you along.
+
+Section Headings
+----------------
+Unlike ``FASTservices.txt``, ``FASTinput.txt`` contains section headings, some of which are needed by FAST
+
++--------------------------+-------------------------------------------------------------------------------+ 
+| Input File Type          | When FAST reads your ``FASTinput.txt``, it assumes it is reading the          |
+|                          | Input File Type section until it sees one of the other two section headings.  |
+|                          |                                                                               |
+|                          | The Input File Type heading is used only when you place your Input File Type  |
+|                          | section after one of the other two sections.                                  | 
++--------------------------+-------------------------------------------------------------------------------+
+| Input Column Definitions | **This section is ignored if your input data file is either a Dbase file or** | 
+|                          | **a delimited file with the first row containing the column names.**          | 
++--------------------------+-------------------------------------------------------------------------------+
+| Input Column Mappings    | Required                                                                      |
++--------------------------+-------------------------------------------------------------------------------+
+
+
+
+Section Order
+-------------
+
+``FASTinput.txt`` sections may appear in any order you prefer.
+
+Input Delimiter
+---------------
+
+Applies only when the input data file type is Delimited.
+
+First Row Contains Column Names
+-------------------------------
+
+Applies only when the input data file type is Delimited.
+When First Row Contains Column Names is set to Y, FAST ignores the entire Input Column Specifications if you included one.  In this case, FAST discovers column names and sizes by inspecting the input data file itself.
+
+Name Format
+-----------
+
+The three full name format options shown in our ``FASTinput.txt`` template are the only three recognized by FAST.  
+If no setting is set, the default value "FML" is used.
+
+
+Value  Description                  Example
+
+FML    First Middle Last            "John Fitzgerald Doe" or "John Doe" (Default)
+LCFM   Last, First Middle           "Doe, John Fitzgerald" or "Doe, John"
+LFM    Last First Middle            "Doe John Fitzgerald" or "Doe John"
+
+
+
+
+.. note:: ``FASTinput.txt`` is Required. FAST cannot process your job unless it contains a ``FASTinput.txt`` document, or one that fits the file naming convention mentioned earlier.
+
+Where to Find the Template
+--------------------------
+Your copy of Peachtree Data's ``FASTinput.txt`` template is in the FAST Starter Kit.zip that contained this document you're now reading.

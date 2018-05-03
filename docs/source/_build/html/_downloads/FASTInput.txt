@@ -1,0 +1,17 @@
+INPUT OPTIONS
+Input Data File Type: (Fixed, DBase, Delimited).............................. = Delimited
+Input Delimiter = comma
+First Row Contains Column Names = Y
+INPUT COLUMN DEFINITIONS
+INPUT COLUMN MAPPINGS
+FullName   = NAME
+Firm       = COMPANY
+NameOrFirm = 
+Address1   = ADDRESS3
+Address2   = ADDRESS2
+Address3   = ADDRESS1
+City       = CITY
+State      = STATE
+ZIPCode    = ZIP
+LastLine   = 
+Phone      = 

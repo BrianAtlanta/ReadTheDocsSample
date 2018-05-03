@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FAST Expression Language (FXL) &mdash; FAST Starter Kit alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/peach-custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="FASTOutput.txt" href="FASTOutputFile.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> FAST Starter Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="HowToPrepare.html">How to Prepare and Submit a FAST Job</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FASTServicesFile.html">FASTServices.txt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FASTInputFile.html">FASTinput.txt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FASTOutputFile.html">FASTOutput.txt</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAST Expression Language (FXL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#one-based-indexes">One-Based Indexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auto-truncation">Auto-Truncation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auto-trimming">Auto-Trimming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#case-sensitivity">Case Sensitivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reserved-words">Reserved Words</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-sub-function">The Sub() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-distance-function">The Distance() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#precedence-of-evaluation">Precedence of Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auto-conversion-during-comparisons">Auto-Conversion During Comparisons</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FAST Starter Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>FAST Expression Language (FXL)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/FAST Expression Language.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fast-expression-language-fxl">
+<h1>FAST Expression Language (FXL)<a class="headerlink" href="#fast-expression-language-fxl" title="Permalink to this headline">¶</a></h1>
+<p>The FAST Expression Language, also known as FXL, enables you to manipulate your original input data and the data resulting from processing services into the results you map to the columns of your output file(s).</p>
+<p>FXL is very similar to the expression languages built into familiar software products like Excel and FoxBase/Dbase, so it is very easy to write.</p>
+<p>FXL is also very forgiving; many conditions that might cause errors in other languages are simply ignored by FXL.</p>
+<p>For example, the following expression is clearly faulty because it tries to evaluate a substring starting at position 9, but the source string “Hello” is only 5 characters long:</p>
+<p>Sub(“Hello”, 9, 3)</p>
+<p>Most languages would throw an exception in a case like this, but FXL simply returns an empty string.</p>
+<p>Take a look at the language reference below to get a good idea of how to write FXL expressions.</p>
+<p>If you need any help, please feel free to call your Account Representative at any time.  We are always here to serve you.
+FXL Reference</p>
+<p>Arguments shown as field or fieldN may also be literal strings.  Arguments shown as expression or expressionN must be expressions that return Boolean (true or false) values.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="5%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Expression</th>
+<th class="head">Returns</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>field1 Contains field2</td>
+<td>Boolean</td>
+<td>True if all of field2 is contained anywhere within field1.</td>
+</tr>
+<tr class="row-odd"><td>field1 BeginsWith field2</td>
+<td>Boolean</td>
+<td>True if field2 is contained at the very beginning of field1.</td>
+</tr>
+<tr class="row-even"><td>field1 EndsWith field2</td>
+<td>Boolean</td>
+<td>True if field2 is contained at the very end of field1.</td>
+</tr>
+<tr class="row-odd"><td>Empty(field)</td>
+<td>Boolean</td>
+<td>True if the field is either empty of any characters or includes only spaces.</td>
+</tr>
+<tr class="row-even"><td>Not(expression)</td>
+<td>Boolean</td>
+<td>True if the expression evaluates to False.</td>
+</tr>
+<tr class="row-odd"><td>expression1 AND expression2</td>
+<td>Boolean</td>
+<td>True if both expression1 and expression2 evaluate to True.</td>
+</tr>
+<tr class="row-even"><td>expression1 OR expression2</td>
+<td>Boolean</td>
+<td>True if either expression1 or expression2 evaluate to True.</td>
+</tr>
+<tr class="row-odd"><td>Trim(field)</td>
+<td>String</td>
+<td>The contents of field trimmed of all leading and trailing spaces.</td>
+</tr>
+<tr class="row-even"><td>Sub(field, startingPosition, length)</td>
+<td>String</td>
+<td>The substring of field that is length characters long and starts at startingPosition (start of field is one).</td>
+</tr>
+<tr class="row-odd"><td>Sub(field, startingPosition)</td>
+<td>String</td>
+<td>The substring of field that includes all characters from startingPosition thru the end of field.</td>
+</tr>
+<tr class="row-even"><td>Left(field, length)</td>
+<td>String</td>
+<td>The first length characters of field.</td>
+</tr>
+<tr class="row-odd"><td>Right(field, length)</td>
+<td>String</td>
+<td>The last length characters of field.</td>
+</tr>
+<tr class="row-even"><td>Iif(expression, resultIfTrue, resultIfFalse)</td>
+<td>String</td>
+<td>Either resultIfTrue if expression evaluates to True; otherwise, resultIfFalse.</td>
+</tr>
+<tr class="row-odd"><td>field1 &amp; field2</td>
+<td>String</td>
+<td>The concatenation of field1 trimmed, a single space character, and field2 trimmed.</td>
+</tr>
+<tr class="row-even"><td>field1 + field2</td>
+<td>String</td>
+<td>The concatenation of field1 and field2.</td>
+</tr>
+<tr class="row-odd"><td>field1 = field2</td>
+<td>Boolean</td>
+<td>True if the fields are equal.  Text comparisons are case-insensitive, parameter is ‘mi’so JOHN = john returns True.</td>
+</tr>
+<tr class="row-even"><td>field1 &gt; field2</td>
+<td>Boolean</td>
+<td>True if field1 is greater than field2.</td>
+</tr>
+<tr class="row-odd"><td>field1 &gt;= field2</td>
+<td>Boolean</td>
+<td>True if field1 is greater than or equal to field2.</td>
+</tr>
+<tr class="row-even"><td>field1 &lt; field2</td>
+<td>Boolean</td>
+<td>True if field1 is less than field2.</td>
+</tr>
+<tr class="row-odd"><td>field1 &lt;= field2</td>
+<td>Boolean</td>
+<td>True if field1 is less than or equal to field2.</td>
+</tr>
+<tr class="row-even"><td>Find(field, stringToSearchFor)</td>
+<td>Integer</td>
+<td>One-based index of first occurrence of stringToSearchFor; -1 if not found</td>
+</tr>
+<tr class="row-odd"><td>Length(field)</td>
+<td>Integer</td>
+<td>Length of value stored in field.</td>
+</tr>
+<tr class="row-even"><td>Distance(lat1, long1, lat2, long2)</td>
+<td>String</td>
+<td>Distance between (lat1, long1) and (lat2, long2) in miles</td>
+</tr>
+<tr class="row-odd"><td>Distance(lat1, long1, lat2, long2, type)</td>
+<td>String</td>
+<td>Distance between (lat1, long1) and (lat2, long2) in miles where the type parameter is ‘mi’ or kilometers where type is ‘km’</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="one-based-indexes">
+<h2>One-Based Indexes<a class="headerlink" href="#one-based-indexes" title="Permalink to this headline">¶</a></h2>
+<p>All indexes used in FXL are one-based.  So the first character of the FirstName field would be returned by this FXL expression:</p>
+<p>Sub(FirstName, 1, 1)</p>
+<p>Because many scripting languages use zero-based indexes, FXL internally corrects attempts to use zero as the index into a string.  So this faulty FXL expression:</p>
+<p>Sub(FirstName, 0, 1)</p>
+<p>will be internally corrected to be:</p>
+<p>Sub(FirstName, 1, 1)</p>
+</div>
+<div class="section" id="auto-truncation">
+<h2>Auto-Truncation<a class="headerlink" href="#auto-truncation" title="Permalink to this headline">¶</a></h2>
+<p>If an FXL expression attempts to map a value into a field that is specified to be shorter than the length of that value, FXL automatically truncates the value to fit the field.</p>
+</div>
+<div class="section" id="auto-trimming">
+<h2>Auto-Trimming<a class="headerlink" href="#auto-trimming" title="Permalink to this headline">¶</a></h2>
+<p>FXL does not automatically trim field values, except for the expression field1 &amp; field2  string.</p>
+</div>
+<div class="section" id="case-sensitivity">
+<h2>Case Sensitivity<a class="headerlink" href="#case-sensitivity" title="Permalink to this headline">¶</a></h2>
+<p>FXL treats all comparisons in a case-insensitive manner.</p>
+<p>So these two FXL expressions are functionally identical, and will therefore produce the exact same results:</p>
+<p>iif(standard.state = “GA”, “C”, “U”)</p>
+<p>iif(standard.state = “ga”, “C”, “U”)</p>
+<p>Both function names and column names are case-insensitive, so the following two expressions are exactly equivalent:</p>
+<p>Sub(Trim(LastName), 1, 9)</p>
+<p>sub(trim(lastname), 1, 9)</p>
+</div>
+<div class="section" id="reserved-words">
+<h2>Reserved Words<a class="headerlink" href="#reserved-words" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Columns may not be named any of the following in any form of capitalization because they are reserved words used by the expression syntax:</dt>
+<dd>Contains
+BeginsWith
+EndsWith
+And
+Or
+True
+False
+Distance
+MoveDistance</dd>
+</dl>
+<p>Literals</p>
+<p>FAST supports three kinds of literals: plain strings of text, plain integers (whole numbers), and Booleans (True or False).</p>
+<p>Neither integer literals nor Boolean literals require quotation marks.</p>
+<p>String literals must be surrounded with either single- or double-quotation marks.</p>
+<p>A literal single-quote or double-quote character is escaped depending upon how the string that contains it is qualified (officially treated as a string).</p>
+<p>For example, if a string is qualified using double-quote characters like this:
+“I am a string literal”</p>
+<p>then placing a single-quote character inside that string literal would not have to be escaped:
+“I’m a string literal”</p>
+<p>because single-quote characters are not used for anything else with respect to that string literal.
+But if a string is qualified using single-quote characters like this:
+‘I am a string literal’</p>
+<p>then placing a single-quote character inside that string literal would have to be escaped by doubling the literal single-quote character:
+‘I’‘m a string literal’</p>
+<p>because single-quote characters are used both within the string literal and as the qualifier character for the entire string literal, escaping the literal single-quote character is the only way a machine can distinguish it from a qualifier character.
+Here are a few more examples.</p>
+<p>If a literal must contain a single quotation mark as printable text, any of these examples will work:</p>
+<p>“I’m a string literal”
+‘I’‘m a string literal’
+“‘British’ style”
+‘’‘British’’ style’</p>
+<p>If a literal must contain a double quotation mark as printable text, any of these examples will work:</p>
+<p>‘I”m a string literal’
+“I”“m a string literal”
+‘“American” style’
+“”“American”” style”</p>
+<p>You can substitute literals for fields, like this:</p>
+<p>field1 Contains “Corp”
+field1 Contains ‘Corp’</p>
+<p>You can also substitute expressions for fields, like this:</p>
+<p>field1 Contains Sub(field2, 5, 16)
+Sub(Iif(Not(Empty(field1 &amp; field2)), field1 &amp; field2, field3), 3, 11)</p>
+</div>
+<div class="section" id="the-sub-function">
+<h2>The Sub() Function<a class="headerlink" href="#the-sub-function" title="Permalink to this headline">¶</a></h2>
+<p>The Sub() function will always return a string, even if the parameters are incorrect.  For example, if the expression Sub(field1, 5, 12) is evaluated for a particular row where the value for field1 for is only 3 characters long, it will return an empty string.</p>
+</div>
+<div class="section" id="the-distance-function">
+<h2>The Distance() Function<a class="headerlink" href="#the-distance-function" title="Permalink to this headline">¶</a></h2>
+<p>The Distance() function expects one latitude and longitude pair passed to it to calculate the distance between a fixed point and each address in the file. The 5th parameter, type, is optional and if omitted the function returns the distance in miles. Type can be either ‘mi’ for miles or ‘km’ for kilometers.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Use the function to output the distance for all individuals’ addresses in the file to a fixed location in miles (either of these will work).</dt>
+<dd>dist_mi(6) = DISTANCE(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381)
+dist_mi(6) = DISTANCE(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381,’mi’)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Use the function to output the distance for all individuals’ addresses in the file to a fixed location in kilometers.</dt>
+<dd>dist_km(6) = DISTANCE(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381,’km’)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Use the function to create different output files based on the change of address distance.</dt>
+<dd>Record Filter=Distance(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381) &lt; 5</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Use the function in combination with other functions in the FAST expression language (FXL).</dt>
+<dd>eval(15) = iif(distance(movereplace.geo.latitude,movereplace.geo.longitude,34.02297,-84.088381) &lt; 5, ‘Less than 5’, ‘Not less than 5’)</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="precedence-of-evaluation">
+<h2>Precedence of Evaluation<a class="headerlink" href="#precedence-of-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>Parentheses may be used to control precedence of evaluation.  For example, if Age contains 25 and Weight contains 185:</p>
+<p>Factor(10) = iif(Age &lt; 7 AND Weight &gt; 70 OR Age &gt; 20 AND Weight &lt; 200, 20, 0.5)</p>
+<p>results in 0.5, but</p>
+<p>Factor(10) = iif((Age &lt; 7 AND Weight &gt; 70) OR (Age &gt; 20 AND Weight &lt; 200), 20, 0.5)</p>
+<p>results in 20.</p>
+</div>
+<div class="section" id="auto-conversion-during-comparisons">
+<h2>Auto-Conversion During Comparisons<a class="headerlink" href="#auto-conversion-during-comparisons" title="Permalink to this headline">¶</a></h2>
+<p>Comparators for equality, greater than, greater than or equal to, less than, and less than or equal to first attempt to convert the values to numbers before comparing them.
+If the values cannot be converted to numbers then they are compared as strings (text).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="FASTOutputFile.html" class="btn btn-neutral" title="FASTOutput.txt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Peachtree Data.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'alpha',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

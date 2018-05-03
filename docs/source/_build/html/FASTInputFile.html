@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FASTinput.txt &mdash; FAST Starter Kit alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/peach-custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FASTOutput.txt" href="FASTOutputFile.html" />
+    <link rel="prev" title="FASTServices.txt" href="FASTServicesFile.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> FAST Starter Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="HowToPrepare.html">How to Prepare and Submit a FAST Job</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FASTServicesFile.html">FASTServices.txt</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FASTinput.txt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#naming-convention">Naming Convention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-fastinput-txt-template">Standard FASTinput.txt Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-fastinput-txt-templates">Custom FASTinput.txt Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-handle-floating-lines">How to Handle “Floating Lines”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#important-notes">Important Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#section-headings">Section Headings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#section-order">Section Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-delimiter">Input Delimiter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#first-row-contains-column-names">First Row Contains Column Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#name-format">Name Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where-to-find-the-template">Where to Find the Template</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FASTOutputFile.html">FASTOutput.txt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAST Expression Language.html">FAST Expression Language (FXL)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FAST Starter Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>FASTinput.txt</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/FASTInputFile.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fastinput-txt">
+<h1>FASTinput.txt<a class="headerlink" href="#fastinput-txt" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference download internal" href="_downloads/FASTInput.txt" download=""><code class="xref download docutils literal notranslate"><span class="pre">FASTInput.txt</span></code></a></p>
+<div class="section" id="naming-convention">
+<h2>Naming Convention<a class="headerlink" href="#naming-convention" title="Permalink to this headline">¶</a></h2>
+<p>FAST input files can be named using the standard name of <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code>, or it can be named using a custom format of <code class="docutils literal notranslate"><span class="pre">FASTinput.YourOwnTextGoesHere.txt</span></code>.
+The custom format is useful when there are jobs with different data formats.  Each FASTInput file would be named according to the format, for example: <code class="docutils literal notranslate"><span class="pre">FASTInput.delimited.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">FASTInput.dbase.txt</span></code>
+The custom name format</p>
+</div>
+<div class="section" id="standard-fastinput-txt-template">
+<h2>Standard FASTinput.txt Template<a class="headerlink" href="#standard-fastinput-txt-template" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">FAST cannot process your job unless it contains a FAST input file, the name fits the standard or custom naming convention.</p>
+</div>
+<p>Peachtree Data provides you with a standard <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> template that contains all possible input specifications plus comments to guide you.  Here is an example that specifies a fixed-width input file containing the columns fname, lname, addr1, addr2, city, state, zip5, filler, and id:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* ------------------------------  FASTinput  --------------------------------
+
+
+INPUT FILE TYPE
+* ---------------------------------------------------------------------------
+* This is the source file you send to Peachtree Data for processing.
+
+Input Data File Type: (Fixed, DBase, Delimited).............................. = Fixed
+    * Fixed     = Fixed-width ASCII
+    * Dbase     = Dbase3
+    * Delimited = ASCII file delimited by a specific character
+
+Input Delimiter: (Comma, Tab, Pipe).......................................... =
+* If Delimited is specified above.
+    * Comma = Commas mark the boundaries of each column
+    * Tab   = Tab characters mark the boundaries of each column
+    * Pipe  = Pipe characters mark the boundaries of each column
+
+First Row Contains Column Names: (Y/N)....................................... =
+* If Delimited is specified above.
+
+
+INPUT COLUMN DEFINITIONS
+* ---------------------------------------------------------------------------
+* This is the list of column names and lengths in your datafile, listed in
+* left-to-right order.  Please list all columns in the data file.
+*
+* Each column name must be unique.
+*
+* If Input Data File Type is Dbase, or if it is Delimited with
+* First Row Contains Column Names = Y, then this section will be ignored.
+
+* Example input column definition:
+
+* fname(15)
+
+* where “fname” is your input column name, and 15 is the maximum length of
+* this field.  All columns are treated as text datatypes.
+
+fname(15)
+lname(20)
+addr1(30)
+addr2(30)
+city(15)
+state(2)
+zip5(5)
+filler(8)
+id(20)
+
+
+INPUT COLUMN MAPPINGS
+* ---------------------------------------------------------------------------
+* In the format: Peachtree Data&#39;s Column Name = Your Column Name
+* Example: City = cityname
+*
+* If you don&#39;t have a column to map to one of Peachtree Data&#39;s columns then
+* just leave that entry blank
+*
+* To combine multiple columns and plain text into a single column, use
+* an Ampersand (&amp;) to connect items with a single space between them,
+* or a Plus Symbol (+) to connect items with nothing between them.
+* Examples:
+* FullName = fname &amp; lname                        --&gt; John Doe
+* FullName = fname &amp; mname &amp; lname + &quot;,&quot; &amp; suffix --&gt; John Fitzgerald Doe, Jr
+*
+* If FullName or Firm is used then NameOrFirm should be blank
+* If City, State and ZIPCode are used then LastLine should be blank
+
+Name Format Used By FullName and/or NameOrFirm: (FML, LCFM, LFM)............. =
+    * FML  = Example: &quot;John Fitzgerald Doe&quot; or &quot;John Doe&quot; (Default)
+    * LCFM = Example: &quot;Doe, John Fitzgerald&quot; or &quot;Doe, John&quot;
+    * LFM  = Example: &quot;Doe John Fitzgerald&quot; or &quot;Doe John&quot;
+
+* Use only one of these mapping blocks and leave the other one empty
+
+* Explicitly-named fields mapping block:
+FullName   = fname &amp; lname
+Firm       =
+NameOrFirm =
+Address1   = addr1
+Address2   = addr2
+City       = city
+State      = state
+ZIPCode    = zip5
+LastLine   =
+Phone      =
+
+* Auto-mapping block:
+Line1      =
+Line2      =
+Line3      =
+Line4      =
+Line5      =
+Line6      =
+Line7      =
+Line8      =
+Line9      =
+Line10     =
+Line11     =
+Line12     =
+</pre></div>
+</div>
+<p>Just like <code class="docutils literal notranslate"><span class="pre">FASTservices.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> doesn’t have to use Peachtree Data’s template.  You can instead specify only what you want and leave the rest out.  For example, this is equivalent to the complete template shown above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">Fixed</span>
+
+<span class="n">INPUT</span> <span class="n">COLUMN</span> <span class="n">DEFINITIONS</span>
+<span class="n">fname</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">lname</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">addr1</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">addr2</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">city</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">state</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">zip5</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">filler</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">id</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">INPUT</span> <span class="n">COLUMN</span> <span class="n">MAPPINGS</span>
+<span class="n">FullName</span>   <span class="o">=</span> <span class="n">fname</span> <span class="o">&amp;</span> <span class="n">lname</span>
+<span class="n">Address1</span>   <span class="o">=</span> <span class="n">addr1</span>
+<span class="n">Address2</span>   <span class="o">=</span> <span class="n">addr2</span>
+<span class="n">City</span>       <span class="o">=</span> <span class="n">city</span>
+<span class="n">State</span>      <span class="o">=</span> <span class="n">state</span>
+<span class="n">ZIPCode</span>    <span class="o">=</span> <span class="n">zip5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-fastinput-txt-templates">
+<h2>Custom FASTinput.txt Templates<a class="headerlink" href="#custom-fastinput-txt-templates" title="Permalink to this headline">¶</a></h2>
+<p>Just like with <code class="docutils literal notranslate"><span class="pre">FASTservices.txt</span></code>, you can create one or more of your own custom <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> templates for use inside your company.  It will be recognized by the FAST system as long as it is named either <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> or named in the format <code class="docutils literal notranslate"><span class="pre">FASTinput.YourOwnTextGoesHere.txt</span></code>.</p>
+<p>Let’s say you typically have two types of input data files you process with us: Dbase files containing a specific set of columns that never change, and comma-delimited files that contain five standard columns plus any number of additional columns.  An efficient strategy might be to create two custom templates…</p>
+<p><strong>FASTinput.dbase.txt</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">Dbase</span>
+
+<span class="n">INPUT</span> <span class="n">COLUMN</span> <span class="n">MAPPINGS</span>
+<span class="n">FullName</span>   <span class="o">=</span> <span class="n">fn</span>
+<span class="n">Address1</span>   <span class="o">=</span> <span class="n">a1</span>
+<span class="n">Address2</span>   <span class="o">=</span> <span class="n">a2</span>
+<span class="n">City</span>       <span class="o">=</span> <span class="n">ct</span>
+<span class="n">State</span>      <span class="o">=</span> <span class="n">st</span>
+<span class="n">ZIPCode</span>    <span class="o">=</span> <span class="n">zc</span>
+</pre></div>
+</div>
+<p><strong>FASTinput.comma.txt</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">Delimited</span>
+<span class="n">Input</span> <span class="n">Delimiter</span> <span class="o">=</span> <span class="n">Comma</span>
+<span class="n">First</span> <span class="n">Row</span> <span class="n">Contains</span> <span class="n">Column</span> <span class="n">Names</span> <span class="o">=</span> <span class="n">N</span>
+
+<span class="o">*</span> <span class="n">Since</span> <span class="n">the</span> <span class="n">delimited</span> <span class="n">file</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">a</span> <span class="n">header</span> <span class="n">record</span><span class="p">,</span> <span class="n">the</span> <span class="n">INPUT</span> <span class="n">COLUMN</span> <span class="n">DEFINTIONS</span> <span class="ow">is</span> <span class="n">required</span><span class="o">.</span>
+<span class="n">INPUT</span> <span class="n">COLUMN</span> <span class="n">DEFINITIONS</span>
+<span class="n">CompleteName</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">Address</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">City</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">State</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">PostalCode</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">INPUT</span> <span class="n">COLUMN</span> <span class="n">MAPPINGS</span>
+<span class="n">FullName</span>   <span class="o">=</span> <span class="n">CompleteName</span>
+<span class="n">Address1</span>   <span class="o">=</span> <span class="n">Address</span>
+<span class="n">Address2</span>   <span class="o">=</span>
+<span class="n">City</span>       <span class="o">=</span> <span class="n">City</span>
+<span class="n">State</span>      <span class="o">=</span> <span class="n">State</span>
+<span class="n">ZIPCode</span>    <span class="o">=</span> <span class="n">PostalCode</span>
+<span class="n">Phone</span>      <span class="o">=</span>
+</pre></div>
+</div>
+<p>…and then for jobs using Dbase input files, drag a copy of <code class="docutils literal notranslate"><span class="pre">FASTinput.dbase.txt</span></code> into your job’s .Zip file.  For jobs using comma-delimited input files, modify a copy of <code class="docutils literal notranslate"><span class="pre">FASTinput.comma.txt</span></code> to include the additional columns and then drag it into your job’s .Zip file.</p>
+</div>
+<div class="section" id="how-to-handle-floating-lines">
+<h2>How to Handle “Floating Lines”<a class="headerlink" href="#how-to-handle-floating-lines" title="Permalink to this headline">¶</a></h2>
+<p>So far the examples we’ve shown for <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> have used input data files containing explicitly-defined columns for each discrete value, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Record</span> <span class="mi">1</span><span class="p">:</span>
+<span class="n">FullName</span>  <span class="o">=</span> <span class="n">Richard</span> <span class="n">West</span>
+<span class="n">Firm</span>      <span class="o">=</span> <span class="n">Peachtree</span> <span class="n">Data</span>
+<span class="n">Address1</span>  <span class="o">=</span> <span class="mi">2905</span> <span class="n">Premiere</span> <span class="n">Pkwy</span>
+<span class="n">Address2</span>  <span class="o">=</span> <span class="n">Suite</span> <span class="mi">200</span>
+<span class="n">City</span>      <span class="o">=</span> <span class="n">Duluth</span>
+<span class="n">State</span>     <span class="o">=</span> <span class="n">GA</span>
+<span class="n">ZipCode</span>   <span class="o">=</span> <span class="mi">30097</span>
+
+<span class="n">Record</span> <span class="mi">2</span><span class="p">:</span>
+<span class="n">FullName</span>  <span class="o">=</span> <span class="n">Bobby</span> <span class="n">Lemanczek</span>
+<span class="n">Firm</span>      <span class="o">=</span>
+<span class="n">Address1</span>  <span class="o">=</span> <span class="mi">1221</span> <span class="n">Peachtree</span> <span class="n">St</span>
+<span class="n">Address2</span>  <span class="o">=</span> <span class="n">Apt</span> <span class="mi">1505</span>
+<span class="n">City</span>      <span class="o">=</span> <span class="n">Atlanta</span>
+<span class="n">State</span>     <span class="o">=</span> <span class="n">GA</span>
+<span class="n">ZipCode</span>   <span class="o">=</span> <span class="mi">30303</span>
+</pre></div>
+</div>
+<p>But sometimes your input data file may contain complete address block lines that are not explicitly positioned, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Record</span> <span class="mi">1</span><span class="p">:</span>
+<span class="n">Field1</span> <span class="o">=</span> <span class="n">Richard</span> <span class="n">West</span>
+<span class="n">Field2</span> <span class="o">=</span> <span class="n">Peachtree</span> <span class="n">Data</span>
+<span class="n">Field3</span> <span class="o">=</span> <span class="mi">2905</span> <span class="n">Premiere</span> <span class="n">Pkwy</span>
+<span class="n">Field4</span> <span class="o">=</span> <span class="n">Suite</span> <span class="mi">200</span>
+<span class="n">Field5</span> <span class="o">=</span> <span class="n">Duluth</span> <span class="n">GA</span> <span class="mi">30097</span>
+
+<span class="n">Record</span> <span class="mi">2</span><span class="p">:</span>
+<span class="n">Field1</span> <span class="o">=</span> <span class="n">Bobby</span> <span class="n">Lemanczek</span>
+<span class="n">Field2</span> <span class="o">=</span> <span class="mi">1221</span> <span class="n">Peachtree</span> <span class="n">St</span> <span class="n">Apt</span> <span class="mi">1505</span>
+<span class="n">Field3</span> <span class="o">=</span> <span class="n">Atlanta</span> <span class="n">GA</span> <span class="mi">30303</span>
+<span class="n">Field4</span> <span class="o">=</span>
+<span class="n">Field5</span> <span class="o">=</span>
+</pre></div>
+</div>
+<p>Such data is said to “float”; the term we use at Peachtree Data is multi-line input.</p>
+<p><code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> handles multi-line input through its Auto-Mapping Block.</p>
+<p>Given the example data shown above, this could be one way to specify it in a <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span> <span class="n">Data</span> <span class="n">File</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">Fixed</span>
+
+<span class="n">INPUT</span> <span class="n">COLUMN</span> <span class="n">DEFINITIONS</span>
+<span class="n">Field1</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">Field2</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">Field3</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">Field4</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">Field5</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="nb">id</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">INPUT</span> <span class="n">COLUMN</span> <span class="n">MAPPINGS</span>
+<span class="n">Line1</span>      <span class="o">=</span> <span class="n">Field1</span>
+<span class="n">Line2</span>      <span class="o">=</span> <span class="n">Field2</span>
+<span class="n">Line3</span>      <span class="o">=</span> <span class="n">Field3</span>
+<span class="n">Line4</span>      <span class="o">=</span> <span class="n">Field4</span>
+<span class="n">Line5</span>      <span class="o">=</span> <span class="n">Field5</span>
+<span class="n">Line6</span>      <span class="o">=</span>
+<span class="n">Line7</span>      <span class="o">=</span>
+<span class="n">Line8</span>      <span class="o">=</span>
+<span class="n">Line9</span>      <span class="o">=</span>
+<span class="n">Line10</span>     <span class="o">=</span>
+<span class="n">Line11</span>     <span class="o">=</span>
+<span class="n">Line12</span>     <span class="o">=</span>
+</pre></div>
+</div>
+<p>Line1 through Line12 is available for mapping to your floating line columns.  In the example above, we could have omitted Line6 through Line12, but we included them to illustrate that they are available to you.</p>
+<p>You can use either the Explicitly-Named Fields Mapping Block or the Auto-Mapping Block, but not both.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Floating Lines are not supported for APT-APPEND at the present time.</p>
+</div>
+</div>
+<div class="section" id="important-notes">
+<h2>Important Notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
+<p>It’s always a good idea to familiarize yourself with Peachtree Data’s FASTinput.txt template because it can teach you a lot about which data input processing options are available and which of those are required.  Here’s some guidance to help you along.</p>
+<div class="section" id="section-headings">
+<h3>Section Headings<a class="headerlink" href="#section-headings" title="Permalink to this headline">¶</a></h3>
+<p>Unlike <code class="docutils literal notranslate"><span class="pre">FASTservices.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> contains section headings, some of which are needed by FAST</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Input File Type</td>
+<td><p class="first">When FAST reads your <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code>, it assumes it is reading the
+Input File Type section until it sees one of the other two section headings.</p>
+<p class="last">The Input File Type heading is used only when you place your Input File Type
+section after one of the other two sections.</p>
+</td>
+</tr>
+<tr class="row-even"><td>Input Column Definitions</td>
+<td><strong>This section is ignored if your input data file is either a Dbase file or</strong>
+<strong>a delimited file with the first row containing the column names.</strong></td>
+</tr>
+<tr class="row-odd"><td>Input Column Mappings</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="section-order">
+<h3>Section Order<a class="headerlink" href="#section-order" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> sections may appear in any order you prefer.</p>
+</div>
+<div class="section" id="input-delimiter">
+<h3>Input Delimiter<a class="headerlink" href="#input-delimiter" title="Permalink to this headline">¶</a></h3>
+<p>Applies only when the input data file type is Delimited.</p>
+</div>
+<div class="section" id="first-row-contains-column-names">
+<h3>First Row Contains Column Names<a class="headerlink" href="#first-row-contains-column-names" title="Permalink to this headline">¶</a></h3>
+<p>Applies only when the input data file type is Delimited.
+When First Row Contains Column Names is set to Y, FAST ignores the entire Input Column Specifications if you included one.  In this case, FAST discovers column names and sizes by inspecting the input data file itself.</p>
+</div>
+<div class="section" id="name-format">
+<h3>Name Format<a class="headerlink" href="#name-format" title="Permalink to this headline">¶</a></h3>
+<p>The three full name format options shown in our <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> template are the only three recognized by FAST.
+If no setting is set, the default value “FML” is used.</p>
+<p>Value  Description                  Example</p>
+<p>FML    First Middle Last            “John Fitzgerald Doe” or “John Doe” (Default)
+LCFM   Last, First Middle           “Doe, John Fitzgerald” or “Doe, John”
+LFM    Last First Middle            “Doe John Fitzgerald” or “Doe John”</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> is Required. FAST cannot process your job unless it contains a <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> document, or one that fits the file naming convention mentioned earlier.</p>
+</div>
+</div>
+<div class="section" id="where-to-find-the-template">
+<h3>Where to Find the Template<a class="headerlink" href="#where-to-find-the-template" title="Permalink to this headline">¶</a></h3>
+<p>Your copy of Peachtree Data’s <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code> template is in the FAST Starter Kit.zip that contained this document you’re now reading.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FASTOutputFile.html" class="btn btn-neutral float-right" title="FASTOutput.txt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FASTServicesFile.html" class="btn btn-neutral" title="FASTServices.txt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Peachtree Data.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'alpha',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

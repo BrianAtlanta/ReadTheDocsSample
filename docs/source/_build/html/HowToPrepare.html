@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to Prepare and Submit a FAST Job &mdash; FAST Starter Kit alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/peach-custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FASTServices.txt" href="FASTServicesFile.html" />
+    <link rel="prev" title="Welcome to FAST’s documentation!" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> FAST Starter Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to Prepare and Submit a FAST Job</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fast-in-a-nutshell">FAST in a Nutshell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-your-job">Preparing your job</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#job-files">Job Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pgp-encrypted-job-files">PGP Encrypted Job Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-your-job">Sending your job</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FASTServicesFile.html">FASTServices.txt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FASTInputFile.html">FASTinput.txt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FASTOutputFile.html">FASTOutput.txt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAST Expression Language.html">FAST Expression Language (FXL)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">FAST Starter Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to Prepare and Submit a FAST Job</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/HowToPrepare.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-prepare-and-submit-a-fast-job">
+<h1>How to Prepare and Submit a FAST Job<a class="headerlink" href="#how-to-prepare-and-submit-a-fast-job" title="Permalink to this headline">¶</a></h1>
+<p>The bulk of this document is mostly reference details, so don’t let the size of it fool you: FAST jobs are really easy to prepare and submit, and you’ll be a pro in no time.
+FAST can do a lot, so the documentation has to contain all the details of what it can do, but most of what you’ll need to know for the majority of jobs is extremely basic.</p>
+<div class="section" id="fast-in-a-nutshell">
+<h2>FAST in a Nutshell<a class="headerlink" href="#fast-in-a-nutshell" title="Permalink to this headline">¶</a></h2>
+<p>Beside the data file you send us for processing, you will also need to send us files that specify what you want us to do and how you want us to do it.  These are simple text files containing phrases our FAST system uses as its processing instructions.</p>
+<p>The first of these files is <code class="docutils literal notranslate"><span class="pre">FASTservices.txt</span></code>, which tells us which services you want processed on your data file.</p>
+<p>The second is <code class="docutils literal notranslate"><span class="pre">FASTinput.txt</span></code>, which describes the format of your data file to our FAST system.</p>
+<p>The third is <code class="docutils literal notranslate"><span class="pre">FASToutput.txt</span></code>, which tells us how you want your output file or files to be formatted and populated.</p>
+<p>You prepare the job by creating a ZIP file that contains your data input file plus these FAST specification files. The ZIP you send to us will have the following file naming convention: <code class="docutils literal notranslate"><span class="pre">YourReference.fast.zip</span></code>. Where YourReference will become the Purchase Order number that is referenced during our billing process.</p>
+<p>You submit the job by sending it via your SecureFTP account to our processing server.</p>
+<p>Once your job is finished processing you will receive notification via an email containing a link to download the job.</p>
+<p>If we have any problems with any part of your job then we will contact you via email.</p>
+<p>That’s FAST in a nutshell.  The details of the process are very straightforward, too, so please take a few moments to read through the rest of this brief document and familiarize yourself with FAST job processing.</p>
+</div>
+<div class="section" id="preparing-your-job">
+<h2>Preparing your job<a class="headerlink" href="#preparing-your-job" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/fast-job-view.png" src="_images/fast-job-view.png" />
+<p>Jobs files must follow the following naming convention:  yourReference.fast.ext</p>
+<ul class="simple">
+<li>yourReference : Your reference number for this job, up to 30 characters of numbers, letters or spaces.</li>
+<li>fast : literal string <code class="docutils literal notranslate"><span class="pre">.fast.</span></code>, can’t be change</li>
+<li>ext : the extension jobs file type, see below</li>
+</ul>
+<p>Example: Assume your reference number was 123456, and you were sending a ZIP compressed file.</p>
+<p>The job file name would be <code class="docutils literal notranslate"><span class="pre">12345.fast.zip</span></code></p>
+<div class="section" id="job-files">
+<h3>Job Files<a class="headerlink" href="#job-files" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Job files must end in one of the following <code class="docutils literal notranslate"><span class="pre">.fast.zip</span></code>, <code class="docutils literal notranslate"><span class="pre">.fast.tar</span></code>, <code class="docutils literal notranslate"><span class="pre">.fast.tar.gz</span></code></p>
+</div>
+<p>FAST supports the following types of job files:</p>
+<blockquote>
+<div><ul class="simple">
+<li>zip</li>
+<li>tar</li>
+<li>tar &amp; gzip</li>
+</ul>
+</div></blockquote>
+<p>Job Files should contain the following files:</p>
+<blockquote>
+<div><ul class="simple">
+<li>FAST specification files (<code class="docutils literal notranslate"><span class="pre">FASTInput.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">FASTServices.txt</span></code>, and optionally <code class="docutils literal notranslate"><span class="pre">FASTOutput.txt</span></code>)</li>
+<li>Your data file.</li>
+</ul>
+</div></blockquote>
+<p>The compressed jobs files cannot contain folders, compressed files such as zip files or container files such as tar files.</p>
+</div>
+<div class="section" id="pgp-encrypted-job-files">
+<h3>PGP Encrypted Job Files<a class="headerlink" href="#pgp-encrypted-job-files" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">PGP encrypted jobs include your PGP public key. The public key file extension must be <code class="docutils literal notranslate"><span class="pre">.asc</span></code>.  The PGP Entryped job file must end in <code class="docutils literal notranslate"><span class="pre">.fast.pgp</span></code></p>
+</div>
+<p>PGP encrypted job files contain the following files:</p>
+<blockquote>
+<div><ul class="simple">
+<li>FAST specification files (<code class="docutils literal notranslate"><span class="pre">FASTInput.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">FASTServices.txt</span></code>, and optionally <code class="docutils literal notranslate"><span class="pre">FASTOutput.txt</span></code>)</li>
+<li>Your data file.</li>
+<li>PGP Public key file (extension must be .asc)</li>
+</ul>
+</div></blockquote>
+<p>Our FAST system supports job files that are PGP encrypted. To submit an encrypted file to FAST you will need to request our PGP public key from your sales representative.
+When submitting a file to our FAST system, it must end in <code class="docutils literal notranslate"><span class="pre">.fast.pgp</span></code>. We will consider the portion of the PGP file name before the first period to be your customer PO number for the job. For a job file named <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Cameron</span> <span class="pre">7.fast.pgp</span></code>, the customer PO number would be “Project Cameron 7”.</p>
+<p>Your PGP public key will need to be included in the PGP file you send us so the return file can be PGP encrypted and returned. Your public key must have an “.asc” extension to ensure we know which file is your PGP public key file and which file is the data file. A -output is appended to your PO number to create the output file name so the return file, based on the example above, would be called <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Cameron</span> <span class="pre">7-output.pgp</span></code>.</p>
+<p>The PGP file cannot contain folders, compressed files such as zip files or container files such as tar files.</p>
+</div>
+<div class="section" id="sending-your-job">
+<h3>Sending your job<a class="headerlink" href="#sending-your-job" title="Permalink to this headline">¶</a></h3>
+<p>Upload your job’s file to your SecureFTP account, and Peachtree Data will do the rest.
+You’ll be notified via email when your job has finished processing, or if there was a problem with your job.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FASTServicesFile.html" class="btn btn-neutral float-right" title="FASTServices.txt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to FAST’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Peachtree Data.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'alpha',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
