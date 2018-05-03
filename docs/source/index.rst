@@ -8,7 +8,7 @@ Welcome Ignite Robotics documentation!
 
 The documentation covers all the techniques Ignite uses to produce a robot that meets the needs of the game.
 
-Hi Alan Glaser
+Hi Richard West
 
 .. toctree::
 	:maxdepth: 2
